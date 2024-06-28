@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Jonathan\\Desktop\\Projetos .NET\\TheHouse\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|c:\\users\\jonathan\\desktop\\projetos .net\\thehouse\\model\\mappings\\compras\\comprasmap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|solutionrelative:model\\mappings\\compras\\comprasmap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|c:\\users\\jonathan\\desktop\\projetos .net\\thehouse\\model\\entities\\compras\\listadecompras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|solutionrelative:model\\entities\\compras\\listadecompras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ListaDeCompras.cs",
+              "DocumentMoniker": "C:\\Users\\Jonathan\\Desktop\\Projetos .NET\\TheHouse\\Model\\Entities\\Compras\\ListaDeCompras.cs",
+              "RelativeDocumentMoniker": "Model\\Entities\\Compras\\ListaDeCompras.cs",
+              "ToolTip": "C:\\Users\\Jonathan\\Desktop\\Projetos .NET\\TheHouse\\Model\\Entities\\Compras\\ListaDeCompras.cs",
+              "RelativeToolTip": "Model\\Entities\\Compras\\ListaDeCompras.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-28T00:39:49.921Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ComprasMap.cs",
+              "DocumentMoniker": "C:\\Users\\Jonathan\\Desktop\\Projetos .NET\\TheHouse\\Model\\Mappings\\Compras\\ComprasMap.cs",
+              "RelativeDocumentMoniker": "Model\\Mappings\\Compras\\ComprasMap.cs",
+              "ToolTip": "C:\\Users\\Jonathan\\Desktop\\Projetos .NET\\TheHouse\\Model\\Mappings\\Compras\\ComprasMap.cs",
+              "RelativeToolTip": "Model\\Mappings\\Compras\\ComprasMap.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-28T00:35:33.393Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
