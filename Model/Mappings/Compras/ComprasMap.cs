@@ -8,7 +8,7 @@ namespace Model.Mappings.Compras {
             builder.ToTable("ListaDeCompras");
             builder.HasKey(e => e.Id);
             builder.Property(e => e.Id).ValueGeneratedOnAdd();
-            builder.Property(e => e.Produto).HasMaxLength(100);
+            builder.Property(e => e.Produto).HasMaxLength(128);
         }
     }
 }

@@ -2302,19 +2302,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Jonathan\\.nuget\\packages\\": {}
+    "C:\\Users\\DEV\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jonathan\\Desktop\\Projetos .NET\\TheHouse\\Model\\Model.csproj",
+      "projectUniqueName": "C:\\Users\\DEV\\Desktop\\GIT\\TheHouse-C-Sharp\\Model\\Model.csproj",
       "projectName": "Model",
-      "projectPath": "C:\\Users\\Jonathan\\Desktop\\Projetos .NET\\TheHouse\\Model\\Model.csproj",
-      "packagesPath": "C:\\Users\\Jonathan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jonathan\\Desktop\\Projetos .NET\\TheHouse\\Model\\obj\\",
+      "projectPath": "C:\\Users\\DEV\\Desktop\\GIT\\TheHouse-C-Sharp\\Model\\Model.csproj",
+      "packagesPath": "C:\\Users\\DEV\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\DEV\\Desktop\\GIT\\TheHouse-C-Sharp\\Model\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Jonathan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\DEV\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
