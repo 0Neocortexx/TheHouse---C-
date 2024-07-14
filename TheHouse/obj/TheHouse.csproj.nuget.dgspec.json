@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DEV\\Desktop\\GIT\\TheHouse-C-Sharp\\TheHouse\\TheHouse.csproj": {}
+    "C:\\git\\TheHouse-C-Sharp\\TheHouse\\TheHouse.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DEV\\Desktop\\GIT\\TheHouse-C-Sharp\\Model\\Model.csproj": {
+    "C:\\git\\TheHouse-C-Sharp\\Model\\Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DEV\\Desktop\\GIT\\TheHouse-C-Sharp\\Model\\Model.csproj",
+        "projectUniqueName": "C:\\git\\TheHouse-C-Sharp\\Model\\Model.csproj",
         "projectName": "Model",
-        "projectPath": "C:\\Users\\DEV\\Desktop\\GIT\\TheHouse-C-Sharp\\Model\\Model.csproj",
-        "packagesPath": "C:\\Users\\DEV\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DEV\\Desktop\\GIT\\TheHouse-C-Sharp\\Model\\obj\\",
+        "projectPath": "C:\\git\\TheHouse-C-Sharp\\Model\\Model.csproj",
+        "packagesPath": "C:\\Users\\Jonathan\\.nuget\\packages\\",
+        "outputPath": "C:\\git\\TheHouse-C-Sharp\\Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\DEV\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Jonathan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -46,6 +46,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.6, )"
@@ -87,17 +91,17 @@
         }
       }
     },
-    "C:\\Users\\DEV\\Desktop\\GIT\\TheHouse-C-Sharp\\TheHouse\\TheHouse.csproj": {
+    "C:\\git\\TheHouse-C-Sharp\\TheHouse\\TheHouse.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DEV\\Desktop\\GIT\\TheHouse-C-Sharp\\TheHouse\\TheHouse.csproj",
+        "projectUniqueName": "C:\\git\\TheHouse-C-Sharp\\TheHouse\\TheHouse.csproj",
         "projectName": "TheHouse",
-        "projectPath": "C:\\Users\\DEV\\Desktop\\GIT\\TheHouse-C-Sharp\\TheHouse\\TheHouse.csproj",
-        "packagesPath": "C:\\Users\\DEV\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DEV\\Desktop\\GIT\\TheHouse-C-Sharp\\TheHouse\\obj\\",
+        "projectPath": "C:\\git\\TheHouse-C-Sharp\\TheHouse\\TheHouse.csproj",
+        "packagesPath": "C:\\Users\\Jonathan\\.nuget\\packages\\",
+        "outputPath": "C:\\git\\TheHouse-C-Sharp\\TheHouse\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\DEV\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Jonathan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -112,8 +116,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\DEV\\Desktop\\GIT\\TheHouse-C-Sharp\\Model\\Model.csproj": {
-                "projectPath": "C:\\Users\\DEV\\Desktop\\GIT\\TheHouse-C-Sharp\\Model\\Model.csproj"
+              "C:\\git\\TheHouse-C-Sharp\\Model\\Model.csproj": {
+                "projectPath": "C:\\git\\TheHouse-C-Sharp\\Model\\Model.csproj"
               }
             }
           }
@@ -133,6 +137,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.6, )"

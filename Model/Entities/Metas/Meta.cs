@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Model.Enums.Meta;
 
-namespace Model.Entities.Metas
-{
+namespace Model.Entities.Metas {
     public class Meta
     {
         public int Id { get; set; }
@@ -13,17 +8,18 @@ namespace Model.Entities.Metas
         public DateTime DataMeta { get; set; }
         public decimal ValorAtual { get; set; }
         public decimal ValorFinal { get; set; }
-        public bool Status { get; set; }
+        public MetaStatus MetaStatus { get; set; }
+
         public Meta() { }
 
-        public Meta(int id, string nomeMeta, DateTime dataMeta, decimal valorAtual, decimal valorFinal, bool status)
+        public Meta(int id, string nomeMeta, DateTime dataMeta, decimal valorAtual, decimal valorFinal, MetaStatus metaStatus)
         {
             Id = id;
             NomeMeta = nomeMeta;
             DataMeta = dataMeta;
             ValorAtual = valorAtual;
             ValorFinal = valorFinal;
-            Status = status;
+            MetaStatus = metaStatus;
         }
 
     }
