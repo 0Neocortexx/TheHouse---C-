@@ -1,12 +1,105 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\git\\TheHouse-C-Sharp\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|c:\\git\\thehouse-c-sharp\\model\\profiles\\entretenimento\\visitasprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|solutionrelative:model\\profiles\\entretenimento\\visitasprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|c:\\git\\thehouse-c-sharp\\model\\mappings\\entretenimento\\visitasmap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|solutionrelative:model\\mappings\\entretenimento\\visitasmap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|c:\\git\\thehouse-c-sharp\\model\\dtos\\visitas\\visitasdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|solutionrelative:model\\dtos\\visitas\\visitasdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|c:\\git\\thehouse-c-sharp\\model\\entities\\entretenimento\\visitas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|solutionrelative:model\\entities\\entretenimento\\visitas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01D5F3E4-673A-43DE-AA2A-A40B85B15D94}|TheHouse\\TheHouse.csproj|c:\\git\\thehouse-c-sharp\\thehouse\\controllers\\visitascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01D5F3E4-673A-43DE-AA2A-A40B85B15D94}|TheHouse\\TheHouse.csproj|solutionrelative:thehouse\\controllers\\visitascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "VisitasProfile.cs",
+              "DocumentMoniker": "C:\\git\\TheHouse-C-Sharp\\Model\\Profiles\\Entretenimento\\VisitasProfile.cs",
+              "RelativeDocumentMoniker": "Model\\Profiles\\Entretenimento\\VisitasProfile.cs",
+              "ToolTip": "C:\\git\\TheHouse-C-Sharp\\Model\\Profiles\\Entretenimento\\VisitasProfile.cs",
+              "RelativeToolTip": "Model\\Profiles\\Entretenimento\\VisitasProfile.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T23:07:39.064Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "VisitasMap.cs",
+              "DocumentMoniker": "C:\\git\\TheHouse-C-Sharp\\Model\\Mappings\\Entretenimento\\VisitasMap.cs",
+              "RelativeDocumentMoniker": "Model\\Mappings\\Entretenimento\\VisitasMap.cs",
+              "ToolTip": "C:\\git\\TheHouse-C-Sharp\\Model\\Mappings\\Entretenimento\\VisitasMap.cs",
+              "RelativeToolTip": "Model\\Mappings\\Entretenimento\\VisitasMap.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T23:07:30.522Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Visitas.cs",
+              "DocumentMoniker": "C:\\git\\TheHouse-C-Sharp\\Model\\Entities\\Entretenimento\\Visitas.cs",
+              "RelativeDocumentMoniker": "Model\\Entities\\Entretenimento\\Visitas.cs",
+              "ToolTip": "C:\\git\\TheHouse-C-Sharp\\Model\\Entities\\Entretenimento\\Visitas.cs",
+              "RelativeToolTip": "Model\\Entities\\Entretenimento\\Visitas.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T23:06:34.099Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "VisitasDto.cs",
+              "DocumentMoniker": "C:\\git\\TheHouse-C-Sharp\\Model\\DTOs\\Visitas\\VisitasDto.cs",
+              "RelativeDocumentMoniker": "Model\\DTOs\\Visitas\\VisitasDto.cs",
+              "ToolTip": "C:\\git\\TheHouse-C-Sharp\\Model\\DTOs\\Visitas\\VisitasDto.cs",
+              "RelativeToolTip": "Model\\DTOs\\Visitas\\VisitasDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T23:06:31.383Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "VisitasController.cs",
+              "DocumentMoniker": "C:\\git\\TheHouse-C-Sharp\\TheHouse\\Controllers\\VisitasController.cs",
+              "RelativeDocumentMoniker": "TheHouse\\Controllers\\VisitasController.cs",
+              "ToolTip": "C:\\git\\TheHouse-C-Sharp\\TheHouse\\Controllers\\VisitasController.cs",
+              "RelativeToolTip": "TheHouse\\Controllers\\VisitasController.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAQwCcAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T22:53:28.703Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

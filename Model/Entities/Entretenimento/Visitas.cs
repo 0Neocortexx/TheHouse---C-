@@ -1,13 +1,6 @@
 ﻿using Model.Enums.Entretenimento;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Model.Entities.Entretenimento
-{
+namespace Model.Entities.Entretenimento {
     public class Visitas
     {
         public int Id { get; set; }

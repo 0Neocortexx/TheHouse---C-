@@ -17,6 +17,7 @@ namespace Model.Mappings.Entretenimento
                 v => v.ToString(),
                 v => (StatusVisita)Enum.Parse(typeof(StatusVisita), v));
             builder.Property(e => e.DataVisita).IsRequired(false);
+
         }
     }
 }

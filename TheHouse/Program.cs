@@ -1,15 +1,23 @@
 using Microsoft.EntityFrameworkCore;
 using Model.Context;
+using Model.Repositories.Entretenimento;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+// builder.Services.AddControllersWithViews();
 
 // Configurar a conexão com o banco de dados PostgreSQL
 
+builder.Services.AddControllers();
 builder.Services.AddDbContext<TheHouseContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
+builder.Services.AddScoped<IVisitasRepository,VisitasRepository>();
+
+
 
 var app = builder.Build();
 

@@ -5,12 +5,12 @@ namespace Dtos.Visitas {
         public int Id { get; set; }
         public string Local { get; set; }
         public string? DataVisita { get; set; }
-        public string StatusVisita { get; set; }
+        public StatusVisita statusVisita { get; set; }
     }
 
     public class CreateVisitasDto {
         public string Local { get; set; }
         public string? DataVisita { get; set; }
-        public string StatusVisita { get; set; }
+        public StatusVisita statusVisita { get; set; }
     }
 }
