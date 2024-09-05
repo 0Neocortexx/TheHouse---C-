@@ -6,9 +6,8 @@ namespace Model.Profiles.Entretenimento {
     public class VisitasProfile : Profile {
         public VisitasProfile() {
 
-            CreateMap<Visitas,VisitasDto>()
-                .ReverseMap()
-                .ForMember(prop => prop.DataVisita,src => src.MapFrom(opt => DateTime.Parse(opt.DataVisita)));
+            CreateMap<Visitas, VisitasDto>();
+              //  .ForMember(prop => prop.DataVisita,src => src.MapFrom(opt => DateTime.Parse(opt.DataVisita)));
             // CreateMap<VisitasDto,Visitas>();
 
         }

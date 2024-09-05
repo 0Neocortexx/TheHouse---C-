@@ -10,11 +10,11 @@
         "projectUniqueName": "C:\\git\\TheHouse-C-Sharp\\Model\\Model.csproj",
         "projectName": "Model",
         "projectPath": "C:\\git\\TheHouse-C-Sharp\\Model\\Model.csproj",
-        "packagesPath": "C:\\Users\\Jonathan\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\jonat\\.nuget\\packages\\",
         "outputPath": "C:\\git\\TheHouse-C-Sharp\\Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Jonathan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jonat\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -87,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
@@ -97,11 +97,11 @@
         "projectUniqueName": "C:\\git\\TheHouse-C-Sharp\\TheHouse\\TheHouse.csproj",
         "projectName": "TheHouse",
         "projectPath": "C:\\git\\TheHouse-C-Sharp\\TheHouse\\TheHouse.csproj",
-        "packagesPath": "C:\\Users\\Jonathan\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\jonat\\.nuget\\packages\\",
         "outputPath": "C:\\git\\TheHouse-C-Sharp\\TheHouse\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Jonathan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jonat\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -181,7 +181,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

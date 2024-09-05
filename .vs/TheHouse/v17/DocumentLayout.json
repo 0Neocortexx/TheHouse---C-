@@ -3,24 +3,52 @@
   "WorkspaceRootPath": "C:\\git\\TheHouse-C-Sharp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|c:\\git\\thehouse-c-sharp\\model\\dtos\\compras\\comprasdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|solutionrelative:model\\dtos\\compras\\comprasdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01D5F3E4-673A-43DE-AA2A-A40B85B15D94}|TheHouse\\TheHouse.csproj|c:\\git\\thehouse-c-sharp\\thehouse\\controllers\\comprascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01D5F3E4-673A-43DE-AA2A-A40B85B15D94}|TheHouse\\TheHouse.csproj|solutionrelative:thehouse\\controllers\\comprascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|c:\\git\\thehouse-c-sharp\\model\\repositories\\compras\\icomprasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|solutionrelative:model\\repositories\\compras\\icomprasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|c:\\git\\thehouse-c-sharp\\model\\profiles\\entretenimento\\visitasprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|solutionrelative:model\\profiles\\entretenimento\\visitasprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|c:\\git\\thehouse-c-sharp\\model\\mappings\\entretenimento\\visitasmap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|solutionrelative:model\\mappings\\entretenimento\\visitasmap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|c:\\git\\thehouse-c-sharp\\model\\profiles\\compras\\comprasprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|solutionrelative:model\\profiles\\compras\\comprasprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01D5F3E4-673A-43DE-AA2A-A40B85B15D94}|TheHouse\\TheHouse.csproj|c:\\git\\thehouse-c-sharp\\thehouse\\controllers\\visitascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01D5F3E4-673A-43DE-AA2A-A40B85B15D94}|TheHouse\\TheHouse.csproj|solutionrelative:thehouse\\controllers\\visitascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|c:\\git\\thehouse-c-sharp\\model\\dtos\\visitas\\visitasdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|solutionrelative:model\\dtos\\visitas\\visitasdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|c:\\git\\thehouse-c-sharp\\model\\entities\\entretenimento\\visitas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|solutionrelative:model\\entities\\entretenimento\\visitas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|c:\\git\\thehouse-c-sharp\\model\\entities\\compras\\listadecompras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|solutionrelative:model\\entities\\compras\\listadecompras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{01D5F3E4-673A-43DE-AA2A-A40B85B15D94}|TheHouse\\TheHouse.csproj|c:\\git\\thehouse-c-sharp\\thehouse\\controllers\\visitascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{01D5F3E4-673A-43DE-AA2A-A40B85B15D94}|TheHouse\\TheHouse.csproj|solutionrelative:thehouse\\controllers\\visitascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|c:\\git\\thehouse-c-sharp\\model\\mappings\\compras\\comprasmap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|solutionrelative:model\\mappings\\compras\\comprasmap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|c:\\git\\thehouse-c-sharp\\model\\entities\\metas\\meta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|solutionrelative:model\\entities\\metas\\meta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|c:\\git\\thehouse-c-sharp\\model\\mappings\\entretenimento\\visitasmap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|solutionrelative:model\\mappings\\entretenimento\\visitasmap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|c:\\git\\thehouse-c-sharp\\model\\entities\\entretenimento\\visitas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D6AC64E-1888-4F0A-9195-8362B0A488E8}|Model\\Model.csproj|solutionrelative:model\\entities\\entretenimento\\visitas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,71 +58,162 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "VisitasProfile.cs",
-              "DocumentMoniker": "C:\\git\\TheHouse-C-Sharp\\Model\\Profiles\\Entretenimento\\VisitasProfile.cs",
-              "RelativeDocumentMoniker": "Model\\Profiles\\Entretenimento\\VisitasProfile.cs",
-              "ToolTip": "C:\\git\\TheHouse-C-Sharp\\Model\\Profiles\\Entretenimento\\VisitasProfile.cs",
-              "RelativeToolTip": "Model\\Profiles\\Entretenimento\\VisitasProfile.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "DocumentIndex": 2,
+              "Title": "IComprasRepository.cs",
+              "DocumentMoniker": "C:\\git\\TheHouse-C-Sharp\\Model\\Repositories\\Compras\\IComprasRepository.cs",
+              "RelativeDocumentMoniker": "Model\\Repositories\\Compras\\IComprasRepository.cs",
+              "ToolTip": "C:\\git\\TheHouse-C-Sharp\\Model\\Repositories\\Compras\\IComprasRepository.cs",
+              "RelativeToolTip": "Model\\Repositories\\Compras\\IComprasRepository.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAABgAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-16T23:07:39.064Z",
+              "WhenOpened": "2024-09-05T00:25:13.568Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "VisitasMap.cs",
-              "DocumentMoniker": "C:\\git\\TheHouse-C-Sharp\\Model\\Mappings\\Entretenimento\\VisitasMap.cs",
-              "RelativeDocumentMoniker": "Model\\Mappings\\Entretenimento\\VisitasMap.cs",
-              "ToolTip": "C:\\git\\TheHouse-C-Sharp\\Model\\Mappings\\Entretenimento\\VisitasMap.cs",
-              "RelativeToolTip": "Model\\Mappings\\Entretenimento\\VisitasMap.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Title": "ComprasController.cs",
+              "DocumentMoniker": "C:\\git\\TheHouse-C-Sharp\\TheHouse\\Controllers\\ComprasController.cs",
+              "RelativeDocumentMoniker": "TheHouse\\Controllers\\ComprasController.cs",
+              "ToolTip": "C:\\git\\TheHouse-C-Sharp\\TheHouse\\Controllers\\ComprasController.cs",
+              "RelativeToolTip": "TheHouse\\Controllers\\ComprasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-16T23:07:30.522Z",
+              "WhenOpened": "2024-09-04T23:49:24.864Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Visitas.cs",
-              "DocumentMoniker": "C:\\git\\TheHouse-C-Sharp\\Model\\Entities\\Entretenimento\\Visitas.cs",
-              "RelativeDocumentMoniker": "Model\\Entities\\Entretenimento\\Visitas.cs",
-              "ToolTip": "C:\\git\\TheHouse-C-Sharp\\Model\\Entities\\Entretenimento\\Visitas.cs",
-              "RelativeToolTip": "Model\\Entities\\Entretenimento\\Visitas.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 0,
+              "Title": "ComprasDto.cs",
+              "DocumentMoniker": "C:\\git\\TheHouse-C-Sharp\\Model\\DTOs\\Compras\\ComprasDto.cs",
+              "RelativeDocumentMoniker": "Model\\DTOs\\Compras\\ComprasDto.cs",
+              "ToolTip": "C:\\git\\TheHouse-C-Sharp\\Model\\DTOs\\Compras\\ComprasDto.cs",
+              "RelativeToolTip": "Model\\DTOs\\Compras\\ComprasDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-16T23:06:34.099Z",
+              "WhenOpened": "2024-09-04T23:40:38.228Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
+              "Title": "ListaDeCompras.cs",
+              "DocumentMoniker": "C:\\git\\TheHouse-C-Sharp\\Model\\Entities\\Compras\\ListaDeCompras.cs",
+              "RelativeDocumentMoniker": "Model\\Entities\\Compras\\ListaDeCompras.cs",
+              "ToolTip": "C:\\git\\TheHouse-C-Sharp\\Model\\Entities\\Compras\\ListaDeCompras.cs",
+              "RelativeToolTip": "Model\\Entities\\Compras\\ListaDeCompras.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-04T23:42:48.178Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "VisitasDto.cs",
               "DocumentMoniker": "C:\\git\\TheHouse-C-Sharp\\Model\\DTOs\\Visitas\\VisitasDto.cs",
               "RelativeDocumentMoniker": "Model\\DTOs\\Visitas\\VisitasDto.cs",
               "ToolTip": "C:\\git\\TheHouse-C-Sharp\\Model\\DTOs\\Visitas\\VisitasDto.cs",
               "RelativeToolTip": "Model\\DTOs\\Visitas\\VisitasDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAjAAAA",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-16T23:06:31.383Z",
+              "WhenOpened": "2024-09-04T23:12:29.282Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "VisitasProfile.cs",
+              "DocumentMoniker": "C:\\git\\TheHouse-C-Sharp\\Model\\Profiles\\Entretenimento\\VisitasProfile.cs",
+              "RelativeDocumentMoniker": "Model\\Profiles\\Entretenimento\\VisitasProfile.cs",
+              "ToolTip": "C:\\git\\TheHouse-C-Sharp\\Model\\Profiles\\Entretenimento\\VisitasProfile.cs",
+              "RelativeToolTip": "Model\\Profiles\\Entretenimento\\VisitasProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-04T23:16:32.224Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "ComprasProfile.cs",
+              "DocumentMoniker": "C:\\git\\TheHouse-C-Sharp\\Model\\Profiles\\Compras\\ComprasProfile.cs",
+              "RelativeDocumentMoniker": "Model\\Profiles\\Compras\\ComprasProfile.cs",
+              "ToolTip": "C:\\git\\TheHouse-C-Sharp\\Model\\Profiles\\Compras\\ComprasProfile.cs",
+              "RelativeToolTip": "Model\\Profiles\\Compras\\ComprasProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-04T23:37:55.777Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "VisitasController.cs",
               "DocumentMoniker": "C:\\git\\TheHouse-C-Sharp\\TheHouse\\Controllers\\VisitasController.cs",
               "RelativeDocumentMoniker": "TheHouse\\Controllers\\VisitasController.cs",
               "ToolTip": "C:\\git\\TheHouse-C-Sharp\\TheHouse\\Controllers\\VisitasController.cs",
               "RelativeToolTip": "TheHouse\\Controllers\\VisitasController.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAQwCcAAAAIAAAA",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-16T22:53:28.703Z",
+              "WhenOpened": "2024-09-04T23:07:25.593Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ComprasMap.cs",
+              "DocumentMoniker": "C:\\git\\TheHouse-C-Sharp\\Model\\Mappings\\Compras\\ComprasMap.cs",
+              "RelativeDocumentMoniker": "Model\\Mappings\\Compras\\ComprasMap.cs",
+              "ToolTip": "C:\\git\\TheHouse-C-Sharp\\Model\\Mappings\\Compras\\ComprasMap.cs",
+              "RelativeToolTip": "Model\\Mappings\\Compras\\ComprasMap.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-04T23:37:09.996Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Meta.cs",
+              "DocumentMoniker": "C:\\git\\TheHouse-C-Sharp\\Model\\Entities\\Metas\\Meta.cs",
+              "RelativeDocumentMoniker": "Model\\Entities\\Metas\\Meta.cs",
+              "ToolTip": "C:\\git\\TheHouse-C-Sharp\\Model\\Entities\\Metas\\Meta.cs",
+              "RelativeToolTip": "Model\\Entities\\Metas\\Meta.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-04T23:36:43.238Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "VisitasMap.cs",
+              "DocumentMoniker": "C:\\git\\TheHouse-C-Sharp\\Model\\Mappings\\Entretenimento\\VisitasMap.cs",
+              "RelativeDocumentMoniker": "Model\\Mappings\\Entretenimento\\VisitasMap.cs",
+              "ToolTip": "C:\\git\\TheHouse-C-Sharp\\Model\\Mappings\\Entretenimento\\VisitasMap.cs",
+              "RelativeToolTip": "Model\\Mappings\\Entretenimento\\VisitasMap.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-04T23:16:25.258Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Visitas.cs",
+              "DocumentMoniker": "C:\\git\\TheHouse-C-Sharp\\Model\\Entities\\Entretenimento\\Visitas.cs",
+              "RelativeDocumentMoniker": "Model\\Entities\\Entretenimento\\Visitas.cs",
+              "ToolTip": "C:\\git\\TheHouse-C-Sharp\\Model\\Entities\\Entretenimento\\Visitas.cs",
+              "RelativeToolTip": "Model\\Entities\\Entretenimento\\Visitas.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAAAcAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-04T23:12:36.44Z",
               "EditorCaption": ""
             }
           ]

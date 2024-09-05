@@ -35,8 +35,11 @@ namespace VisitasApi.Controllers {
         [HttpPost]
         public async Task<ActionResult<VisitasDto>> CreateVisita(VisitasDto visitasDto) {
             var visita = _mapper.Map<Visitas>(visitasDto);
+            Console.WriteLine("Passou do mapper");
+
             await _repository.AddVisita(visita);
             await _repository.SaveChangesAsync();
+
         
             var visitaDto = _mapper.Map<VisitasDto>(visita);
             return CreatedAtAction(nameof(GetVisita),new { id = visitaDto.Id },visitaDto);
