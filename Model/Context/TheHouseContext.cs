@@ -13,7 +13,7 @@ namespace Model.Context {
         
         // Inserindo as entidades que virarão tabela
         public DbSet<Visitas> Visitas { get; set; }
-        public DbSet<ListaDeCompras> listaDeCompras { get; set; }
+        public DbSet<ListaDeCompras> Compras { get; set; }
         public DbSet<FinancaDespesa> financaDespesa { get; set; }
         public DbSet<FinancaReceita> financaReceita { get; set; }
         public DbSet<Meta> meta { get; set; }

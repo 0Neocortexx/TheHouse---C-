@@ -19,17 +19,17 @@ namespace Model.Repositories.Compras
         }
         public async Task<IEnumerable<ListaDeCompras>> GetAllCompras()
         {
-            return await _context.listaDeCompras.ToListAsync();
+            return await _context.Compras.ToListAsync();
         }
 
         public async Task<ListaDeCompras?> GetComprasById(int id)
         {
-            return await _context.listaDeCompras.FindAsync(id);
+            return await _context.Compras.FindAsync(id);
         }
 
         public async Task AddCompra(ListaDeCompras compras)
         {
-            await _context.listaDeCompras.AddAsync(compras);
+            await _context.Compras.AddAsync(compras);
         }
 
         public async Task SaveChangesAsync()

@@ -40,16 +40,19 @@ namespace TheHouse.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<ComprasDto>> CreateCompra(ComprasDto response)
+        public async Task<string> CreateCompra(ListaDeCompras response)
         {
-            var compra = _mapper.Map<ListaDeCompras>(response);
-
-            await _repository.AddCompra(compra);
+            Console.WriteLine("Entrou na request");
+            // var compra = _mapper.Map<ListaDeCompras>(response);
+            Console.WriteLine("Mapeou o objeto recebido");
+            await _repository.AddCompra(response);
+            Console.WriteLine("Adicionou ao banco");
             await _repository.SaveChangesAsync();
 
 
-            var ComprasDto = _mapper.Map<ComprasDto>(compra);
-            return CreatedAtAction(nameof(GetCompra), new { id = ComprasDto.Id }, ComprasDto);
+            // var ComprasDto = _mapper.Map<ComprasDto>(compra);
+            // return CreatedAtAction(nameof(GetCompra), new { id = ComprasDto.Id }, ComprasDto);
+            return "OK";
         }
 
     }

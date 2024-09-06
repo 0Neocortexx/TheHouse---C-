@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Model.Context;
+using Model.Repositories.Compras;
 using Model.Repositories.Entretenimento;
-using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +18,8 @@ builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.AddScoped<IVisitasRepository,VisitasRepository>();
 
 
+builder.Services.AddTransient<IComprasRepository, ComprasRepository>();
+builder.Services.AddTransient<IVisitasRepository, VisitasRepository>();
 
 var app = builder.Build();
 
