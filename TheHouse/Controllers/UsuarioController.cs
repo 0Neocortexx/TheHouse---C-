@@ -1,0 +1,53 @@
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using Model.DTOs.UsuarioDto;
+using Model.Entities.Usuario;
+using Model.Repositories.UsuarioRepository;
+
+namespace TheHouse.Controllers
+{
+    [Route("api/usuario")]
+    [ApiController]
+    public class UsuarioController : Controller
+    {
+        private readonly IUsuarioRepository _repository;
+        private readonly IMapper _mapper;
+
+        public UsuarioController (IUsuarioRepository repository, IMapper mapper)
+        {
+            _repository = repository;
+            _mapper = mapper;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<UsuarioDto>>> GetAllUsuario()
+        {
+            var usuarios = await _repository.GetAllUsuario();
+            return Ok(_mapper.Map<IEnumerable<UsuarioDto>>(usuarios));
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<UsuarioDto>> GetUsuarioById(int id)
+        {
+            var usuario = await _repository.GetUsuarioById(id);
+            if (usuario == null)
+            {
+                return NotFound();
+            }
+            return Ok(_mapper.Map<UsuarioDto>(usuario));
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<UsuarioDto>> AddUsuario(UsuarioDto usuarioDto) { 
+            
+            var usuario = _mapper.Map<Usuario>(usuarioDto);
+            
+            await _repository.AddUsuario(usuario);
+            
+            await _repository.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetUsuarioById), new { id = usuarioDto.Id }, usuarioDto);
+        }
+
+    }
+}

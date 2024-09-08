@@ -3,7 +3,8 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Model.Entities.Metas;
 using Model.Enums.Meta;
 
-namespace Model.Mappings.Metas {
+namespace Model.Mappings.Metas
+{
     public class MetaMap : IEntityTypeConfiguration<Meta> {
         public void Configure(EntityTypeBuilder<Meta> builder) {
             builder.ToTable("Metas");

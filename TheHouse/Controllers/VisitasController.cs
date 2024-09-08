@@ -7,7 +7,7 @@ using Model.Repositories.Entretenimento;
 namespace VisitasApi.Controllers {
     [Route("api/visitas")]
     [ApiController]
-    public class VisitasController :ControllerBase {
+    public class VisitasController : Controller {
 
         private readonly IVisitasRepository _repository;
         private readonly IMapper _mapper;

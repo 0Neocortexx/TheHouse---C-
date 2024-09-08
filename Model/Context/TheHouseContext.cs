@@ -3,6 +3,7 @@ using Model.Entities.Compras;
 using Model.Entities.Entretenimento;
 using Model.Entities.Financas;
 using Model.Entities.Metas;
+using Model.Entities.Usuario;
 using System.Reflection;
 
 namespace Model.Context {
@@ -17,6 +18,7 @@ namespace Model.Context {
         public DbSet<FinancaDespesa> financaDespesa { get; set; }
         public DbSet<FinancaReceita> financaReceita { get; set; }
         public DbSet<Meta> meta { get; set; }
+        public DbSet<Usuario> usuario { get; set; }
 
         // Criando o método obrigatório da interface DbContext
         protected override void OnModelCreating(ModelBuilder modelBuilder)

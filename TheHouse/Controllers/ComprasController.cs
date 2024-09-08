@@ -9,7 +9,7 @@ namespace TheHouse.Controllers
 {
     [Route("api/compras")]
     [ApiController]
-    public class ComprasController : ControllerBase
+    public class ComprasController : Controller
     {
 
         private readonly IComprasRepository _repository;
@@ -40,12 +40,12 @@ namespace TheHouse.Controllers
         }
 
         [HttpPost]
-        public async Task<string> CreateCompra(ListaDeCompras response)
+        public async Task<string> CreateCompra(ComprasDto response)
         {
-            Console.WriteLine("Entrou na request");
-            // var compra = _mapper.Map<ListaDeCompras>(response);
+            Console.WriteLine("Entrou na request"); 
+            var compra = _mapper.Map<ListaDeCompras>(response);
             Console.WriteLine("Mapeou o objeto recebido");
-            await _repository.AddCompra(response);
+            await _repository.AddCompra(compra);
             Console.WriteLine("Adicionou ao banco");
             await _repository.SaveChangesAsync();
 
