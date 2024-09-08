@@ -1,16 +1,17 @@
-﻿using Model.Enums.Entretenimento;
+﻿using Model.Enums.Visita;
 
-namespace Model.Entities.Entretenimento {
-    public class Visitas
+namespace Model.Entities.Visita
+{
+    public class Visita
     {
         public int Id { get; set; }
         public string Local { get; set; }
         public DateTime? DataVisita { get; set; }
         public StatusVisita StatusVisita { get; set; }
 
-        public Visitas() { }
+        public Visita() { }
 
-        public Visitas(int id, string local, DateTime? dataVisita, StatusVisita statusVisita)
+        public Visita(int id, string local, DateTime? dataVisita, StatusVisita statusVisita)
         {
             this.Id = id;
             this.Local = local;

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Model.Context;
-using Model.Entities.Usuario;
+using Model.Entities.GrupoUsuario;
 
 namespace Model.Repositories.UsuarioRepository
 {
@@ -23,16 +23,16 @@ namespace Model.Repositories.UsuarioRepository
 
         public async Task<IEnumerable<Usuario>> GetAllUsuario()
         {
-           return await _context.usuario.ToListAsync();
+           return await _context.Usuario.ToListAsync();
         }
 
         public async Task<Usuario?> GetUsuarioById(int id) { 
-            return await _context.usuario.FindAsync(id);
+            return await _context.Usuario.FindAsync(id);
         }
 
         public async Task AddUsuario(Usuario usuario)
         {
-            await _context.usuario.AddAsync(usuario);   
+            await _context.Usuario.AddAsync(usuario);   
         }
 
         public async Task SaveChangesAsync()

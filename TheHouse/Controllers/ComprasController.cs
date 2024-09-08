@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Dtos.Visitas;
+using Dtos.VisitaDto;
 using Microsoft.AspNetCore.Mvc;
 using Model.DTOs.Compras;
 using Model.Entities.Compras;
@@ -25,7 +25,7 @@ namespace TheHouse.Controllers
         public async Task<ActionResult<IEnumerable<ComprasDto>>> GetCompras()
         {
             var compras = await _repository.GetAllCompras();
-            return Ok(_mapper.Map<IEnumerable<VisitasDto>>(compras));
+            return Ok(_mapper.Map<IEnumerable<VisitaDto>>(compras));
         }
 
         [HttpGet("{id}")]
@@ -40,17 +40,16 @@ namespace TheHouse.Controllers
         }
 
         [HttpPost]
-        public async Task<string> CreateCompra(ComprasDto response)
+        public async Task<string> CreateCompra(CreateComprasDto response)
         {
             Console.WriteLine("Entrou na request"); 
             var compra = _mapper.Map<ListaDeCompras>(response);
-            Console.WriteLine("Mapeou o objeto recebido");
             await _repository.AddCompra(compra);
-            Console.WriteLine("Adicionou ao banco");
             await _repository.SaveChangesAsync();
 
 
-            // var ComprasDto = _mapper.Map<ComprasDto>(compra);
+            var ComprasDto = _mapper.Map<ComprasDto>(compra);
+            Console.WriteLine(ComprasDto);
             // return CreatedAtAction(nameof(GetCompra), new { id = ComprasDto.Id }, ComprasDto);
             return "OK";
         }

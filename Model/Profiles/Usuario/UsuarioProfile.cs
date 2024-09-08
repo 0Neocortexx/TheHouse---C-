@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Model.DTOs.UsuarioDto;
-using Model.Entities.Usuario;
+using Model.Entities.GrupoUsuario;
 
 namespace Model.Profiles.UsuarioProfile
 {

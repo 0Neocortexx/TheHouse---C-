@@ -1,7 +1,12 @@
 using Microsoft.EntityFrameworkCore;
 using Model.Context;
+using Model.Profiles.Compras;
+using Model.Profiles.MetaProfile;
+using Model.Profiles.UsuarioProfile;
+using Model.Profiles.VisitaProfile;
 using Model.Repositories.Compras;
 using Model.Repositories.Entretenimento;
+using Model.Repositories.MetaRepository;
 using Model.Repositories.UsuarioRepository;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,13 +20,20 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<TheHouseContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddAutoMapper(typeof(Program).Assembly);
-builder.Services.AddScoped<IVisitasRepository,VisitasRepository>();
+// builder.Services.AddAutoMapper(typeof(Program).Assembly);
+builder.Services.AddScoped<IVisitaRepository,VisitaRepository>();
 
-
+// Registro de Repositorys
 builder.Services.AddTransient<IComprasRepository, ComprasRepository>();
-builder.Services.AddTransient<IVisitasRepository, VisitasRepository>();
+builder.Services.AddTransient<IVisitaRepository, VisitaRepository>();
 builder.Services.AddTransient<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddTransient<IMetaRepository, MetaRepository>();
+
+// Registro de Mappers
+builder.Services.AddAutoMapper(typeof(UsuarioProfile).Assembly);
+builder.Services.AddAutoMapper(typeof(ComprasProfile).Assembly);
+builder.Services.AddAutoMapper(typeof(VisitaProfile).Assembly);
+builder.Services.AddAutoMapper(typeof(MetaProfile).Assembly);
 
 var app = builder.Build();
 

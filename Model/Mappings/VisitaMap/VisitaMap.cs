@@ -1,15 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Model.Entities.Entretenimento;
-using Model.Enums.Entretenimento;
+using Model.Entities.Visita;
+using Model.Enums.Visita;
 
 namespace Model.Mappings.Entretenimento
 {
-    public class VisitasMap : IEntityTypeConfiguration<Visitas> 
+    public class VisitaMap : IEntityTypeConfiguration<Visita> 
     {
-        public void Configure(EntityTypeBuilder<Visitas> builder) 
+        public void Configure(EntityTypeBuilder<Visita> builder) 
         {
-            builder.ToTable("Visitas");
+            builder.ToTable("Visita");
             builder.HasKey(e => e.Id);
             builder.Property(e => e.Id).ValueGeneratedOnAdd();
             builder.Property(e => e.Local).HasMaxLength(128).IsUnicode(true);

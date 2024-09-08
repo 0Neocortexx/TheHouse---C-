@@ -2,9 +2,11 @@
 
 namespace Model.Enums.Meta {
     public enum MetaStatus {
-        [Description ("Status das metas")]
+        [Description ("Metas não concluídas")]
         NaoConcluida = 0,
+        [Description ("Metas Concluídas")]
         Concluida = 1,
+        [Description ("Metas em planejamento")]
         EmPlanjamento = 2
     }
 }

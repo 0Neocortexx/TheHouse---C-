@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Model.Entities.Metas;
+using Model.Entities.GrupoMeta;
 using Model.Enums.Meta;
 
 namespace Model.Mappings.Metas

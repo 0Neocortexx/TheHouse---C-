@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Model.Context;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Model.Migrations
 {
     [DbContext(typeof(TheHouseContext))]
-    partial class TheHouseContextModelSnapshot : ModelSnapshot
+    [Migration("20240908174339_migration_08-09-2024_3")]
+    partial class migration_08092024_3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -101,7 +104,7 @@ namespace Model.Migrations
                     b.ToTable("FinancaReceita", (string)null);
                 });
 
-            modelBuilder.Entity("Model.Entities.GrupoMeta.Meta", b =>
+            modelBuilder.Entity("Model.Entities.Metas.Meta", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -109,7 +112,7 @@ namespace Model.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("DataObjetivo")
+                    b.Property<DateTime>("DataMeta")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("MetaStatus")
@@ -121,23 +124,18 @@ namespace Model.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("character varying(256)");
 
-                    b.Property<int>("UsuarioId")
-                        .HasColumnType("integer");
-
-                    b.Property<decimal>("ValorAdquirido")
+                    b.Property<decimal>("ValorAtual")
                         .HasColumnType("numeric");
 
-                    b.Property<decimal>("ValorTotalMeta")
+                    b.Property<decimal>("ValorFinal")
                         .HasColumnType("numeric");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UsuarioId");
-
                     b.ToTable("Metas", (string)null);
                 });
 
-            modelBuilder.Entity("Model.Entities.GrupoUsuario.Usuario", b =>
+            modelBuilder.Entity("Model.Entities.Usuario.Usuario", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -212,22 +210,6 @@ namespace Model.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Visita", (string)null);
-                });
-
-            modelBuilder.Entity("Model.Entities.GrupoMeta.Meta", b =>
-                {
-                    b.HasOne("Model.Entities.GrupoUsuario.Usuario", "Usuario")
-                        .WithMany("Metas")
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Usuario");
-                });
-
-            modelBuilder.Entity("Model.Entities.GrupoUsuario.Usuario", b =>
-                {
-                    b.Navigation("Metas");
                 });
 #pragma warning restore 612, 618
         }

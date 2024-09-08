@@ -10,6 +10,7 @@ namespace Model.DTOs.UsuarioDto
         public string Senha { get; set; }
         public GeneroEnum Genero { get; set; }
         public string Cep { get; set; }
+        public String Bairro { get; set; }
         public string Cidade { get; set; }
         public string Estado { get; set; }
         public string Pais { get; set; }
@@ -22,6 +23,7 @@ namespace Model.DTOs.UsuarioDto
         public string Senha { get; set; }
         public GeneroEnum Genero { get; set; }
         public string Cep { get; set; }
+        public String Bairro { get; set; }
         public string Cidade { get; set; }
         public string Estado { get; set; }
         public string Pais { get; set; }

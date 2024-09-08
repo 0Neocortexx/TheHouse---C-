@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Model.Context;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Model.Migrations
 {
     [DbContext(typeof(TheHouseContext))]
-    partial class TheHouseContextModelSnapshot : ModelSnapshot
+    [Migration("20240908180810_migration_08-09-2024_4")]
+    partial class migration_08092024_4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -101,42 +104,6 @@ namespace Model.Migrations
                     b.ToTable("FinancaReceita", (string)null);
                 });
 
-            modelBuilder.Entity("Model.Entities.GrupoMeta.Meta", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("DataObjetivo")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("MetaStatus")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("NomeMeta")
-                        .IsRequired()
-                        .HasMaxLength(256)
-                        .HasColumnType("character varying(256)");
-
-                    b.Property<int>("UsuarioId")
-                        .HasColumnType("integer");
-
-                    b.Property<decimal>("ValorAdquirido")
-                        .HasColumnType("numeric");
-
-                    b.Property<decimal>("ValorTotalMeta")
-                        .HasColumnType("numeric");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UsuarioId");
-
-                    b.ToTable("Metas", (string)null);
-                });
-
             modelBuilder.Entity("Model.Entities.GrupoUsuario.Usuario", b =>
                 {
                     b.Property<int>("Id")
@@ -188,6 +155,42 @@ namespace Model.Migrations
                     b.ToTable("Usuario", (string)null);
                 });
 
+            modelBuilder.Entity("Model.Entities.Metas.Meta", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("DataObjetivo")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("MetaStatus")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NomeMeta")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("character varying(256)");
+
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("integer");
+
+                    b.Property<decimal>("ValorAdquirido")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("ValorTotalMeta")
+                        .HasColumnType("numeric");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("Metas", (string)null);
+                });
+
             modelBuilder.Entity("Model.Entities.Visita.Visita", b =>
                 {
                     b.Property<int>("Id")
@@ -214,7 +217,7 @@ namespace Model.Migrations
                     b.ToTable("Visita", (string)null);
                 });
 
-            modelBuilder.Entity("Model.Entities.GrupoMeta.Meta", b =>
+            modelBuilder.Entity("Model.Entities.Metas.Meta", b =>
                 {
                     b.HasOne("Model.Entities.GrupoUsuario.Usuario", "Usuario")
                         .WithMany("Metas")

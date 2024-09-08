@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Model.Entities.Usuario;
+using Model.Entities.GrupoUsuario;
 using Model.Enums.Usuario;
 
 namespace Model.Mappings.UsuarioMap

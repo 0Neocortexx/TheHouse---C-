@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Model.DTOs.UsuarioDto;
-using Model.Entities.Usuario;
+using Model.Entities.GrupoUsuario;
 using Model.Repositories.UsuarioRepository;
 
 namespace TheHouse.Controllers
@@ -10,10 +10,10 @@ namespace TheHouse.Controllers
     [ApiController]
     public class UsuarioController : Controller
     {
-        private readonly IUsuarioRepository _repository;
+        private readonly UsuarioRepository _repository;
         private readonly IMapper _mapper;
 
-        public UsuarioController (IUsuarioRepository repository, IMapper mapper)
+        public UsuarioController (UsuarioRepository repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
@@ -38,15 +38,23 @@ namespace TheHouse.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<UsuarioDto>> AddUsuario(UsuarioDto usuarioDto) { 
-            
-            var usuario = _mapper.Map<Usuario>(usuarioDto);
-            
-            await _repository.AddUsuario(usuario);
-            
-            await _repository.SaveChangesAsync();
+        public async Task<ActionResult<UsuarioDto>> AddUsuario(CreateUsuarioDto usuarioDto) {
 
-            return CreatedAtAction(nameof(GetUsuarioById), new { id = usuarioDto.Id }, usuarioDto);
+            try
+            {
+                var usuario = _mapper.Map<Usuario>(usuarioDto);
+                await _repository.AddUsuario(usuario);
+                await _repository.SaveChangesAsync();
+                return CreatedAtAction(nameof(GetUsuarioById), new { id = usuario.Id }, usuario);
+
+            } catch (AutoMapperMappingException e)  
+            { 
+                return BadRequest("Erro no Mapeamento de entidades!\n " + " \nErro: " + e);
+            } catch (Exception)
+            {
+                return StatusCode(500, "Erro interno do servidor");
+            }
+         
         }
 
     }

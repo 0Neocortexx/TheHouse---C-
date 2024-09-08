@@ -1,14 +1,15 @@
-﻿using Model.Enums.Entretenimento;
+﻿using Model.Enums.Visita;
 
-namespace Dtos.Visitas {
-    public class VisitasDto {
+namespace Dtos.VisitaDto
+{
+    public class VisitaDto {
         public int Id { get; set; }
         public string Local { get; set; }
         public string? DataVisita { get; set; }
         public StatusVisita statusVisita { get; set; }
     }
 
-    public class CreateVisitasDto {
+    public class CreateVisitaDto {
         public string Local { get; set; }
         public string? DataVisita { get; set; }
         public StatusVisita statusVisita { get; set; }
