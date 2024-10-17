@@ -8,6 +8,10 @@ using Model.Repositories.Compras;
 using Model.Repositories.Entretenimento;
 using Model.Repositories.MetaRepository;
 using Model.Repositories.UsuarioRepository;
+using Model.Services.CompraService;
+using Model.Services.MetaService;
+using Model.Services.UsuarioService;
+using Model.Services.VisitaService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,19 +19,18 @@ var builder = WebApplication.CreateBuilder(args);
 // builder.Services.AddControllersWithViews();
 
 // Configurar a conexão com o banco de dados PostgreSQL
-
 builder.Services.AddControllers();
 builder.Services.AddDbContext<TheHouseContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // builder.Services.AddAutoMapper(typeof(Program).Assembly);
-builder.Services.AddScoped<IVisitaRepository,VisitaRepository>();
+builder.Services.AddScoped<IVisitaRepository,VisitaService>();
 
 // Registro de Repositorys
-builder.Services.AddTransient<IComprasRepository, ComprasRepository>();
-builder.Services.AddTransient<IVisitaRepository, VisitaRepository>();
-builder.Services.AddTransient<IUsuarioRepository, UsuarioRepository>();
-builder.Services.AddTransient<IMetaRepository, MetaRepository>();
+builder.Services.AddTransient<IComprasRepository, CompraService>();
+builder.Services.AddTransient<IVisitaRepository, VisitaService>();
+builder.Services.AddTransient<IUsuarioRepository, UsuarioService>();
+builder.Services.AddTransient<IMetaRepository, MetaService>();
 
 // Registro de Mappers
 builder.Services.AddAutoMapper(typeof(UsuarioProfile).Assembly);
@@ -35,6 +38,7 @@ builder.Services.AddAutoMapper(typeof(ComprasProfile).Assembly);
 builder.Services.AddAutoMapper(typeof(VisitaProfile).Assembly);
 builder.Services.AddAutoMapper(typeof(MetaProfile).Assembly);
 
+// Permitindo o Cross-Origin para a aplicação front-end
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(

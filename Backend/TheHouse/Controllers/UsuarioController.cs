@@ -10,10 +10,10 @@ namespace TheHouse.Controllers
     [ApiController]
     public class UsuarioController : Controller
     {
-        private readonly UsuarioRepository _repository;
+        private readonly IUsuarioRepository _repository;
         private readonly IMapper _mapper;
 
-        public UsuarioController (UsuarioRepository repository, IMapper mapper)
+        public UsuarioController (IUsuarioRepository repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
