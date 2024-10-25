@@ -10,26 +10,26 @@ namespace TheHouse.Controllers
     [ApiController]
     public class UsuarioController : Controller
     {
-        private readonly IUsuarioRepository _repository;
+        private readonly UsuarioService _service;
         private readonly IMapper _mapper;
 
-        public UsuarioController (IUsuarioRepository repository, IMapper mapper)
+        public UsuarioController (UsuarioService service, IMapper mapper)
         {
-            _repository = repository;
+            _service = service;
             _mapper = mapper;
         }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<UsuarioDto>>> GetAllUsuario()
         {
-            var usuarios = await _repository.GetAllUsuario();
+            var usuarios = await _service.GetAllUsuario();
             return Ok(_mapper.Map<IEnumerable<UsuarioDto>>(usuarios));
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<UsuarioDto>> GetUsuarioById(int id)
         {
-            var usuario = await _repository.GetUsuarioById(id);
+            var usuario = await _service.GetUsuarioById(id);
             if (usuario == null)
             {
                 return NotFound();
@@ -43,8 +43,8 @@ namespace TheHouse.Controllers
             try
             {
                 var usuario = _mapper.Map<Usuario>(usuarioDto);
-                await _repository.AddUsuario(usuario);
-                await _repository.SaveChangesAsync();
+                await _service.AddUsuario(usuario);
+                await _service.SaveChangesAsync();
                 return CreatedAtAction(nameof(GetUsuarioById), new { id = usuario.Id }, usuario);
 
             } catch (AutoMapperMappingException e)  

@@ -2,7 +2,7 @@
 
 namespace Model.Repositories.UsuarioRepository
 {
-    public interface IUsuarioRepository
+    public interface UsuarioService
     {
         Task<IEnumerable<Usuario>> GetAllUsuario();
         Task<Usuario?> GetUsuarioById(int id);

@@ -10,23 +10,23 @@ namespace VisitasApi.Controllers
     [ApiController]
     public class VisitaController : Controller {
 
-        private readonly IVisitaRepository _repository;
+        private readonly VisitaService _service;
         private readonly IMapper _mapper;
 
-        public VisitaController(IVisitaRepository repository,IMapper mapper) {
-            _repository = repository;
+        public VisitaController(VisitaService service,IMapper mapper) {
+            _service = service;
             _mapper = mapper;
         }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<VisitaDto>>> GetVisitas() {
-            var visitas = await _repository.GetAllVisita();
+            var visitas = await _service.GetAllVisita();
             return Ok(_mapper.Map<IEnumerable<VisitaDto>>(visitas));
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<VisitaDto>> GetVisita(int id) {
-            var visita = await _repository.GetVisitaById(id);
+            var visita = await _service.GetVisitaById(id);
             if(visita == null) {
                 return NotFound();
             }
@@ -38,9 +38,9 @@ namespace VisitasApi.Controllers
             
             var visita = _mapper.Map<Visita>(visitasDto);
 
-            await _repository.AddVisita(visita);
+            await _service.AddVisita(visita);
 
-            await _repository.SaveChangesAsync();
+            await _service.SaveChangesAsync();
 
             var visitaDto = _mapper.Map<VisitaDto>(visita);
 

@@ -5,7 +5,7 @@ using Model.Repositories.Entretenimento;
 
 namespace Model.Services.VisitaService
 {
-    public class VisitaService : IVisitaRepository
+    public class VisitaService : Repositories.Entretenimento.VisitaService
     {
         private readonly TheHouseContext _context;
 

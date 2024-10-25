@@ -3,7 +3,7 @@ using Dtos.VisitaDto;
 using Microsoft.AspNetCore.Mvc;
 using Model.DTOs.Compras;
 using Model.Entities.Compras;
-using Model.Repositories.Compras;
+using Model.Services.CompraService;
 
 namespace TheHouse.Controllers
 {
@@ -12,26 +12,26 @@ namespace TheHouse.Controllers
     public class ComprasController : Controller
     {
 
-        private readonly IComprasRepository _repository;
+        private readonly CompraService _service;
         private readonly IMapper _mapper;
 
-        public ComprasController(IComprasRepository repository, IMapper mapper)
+        public ComprasController(CompraService service, IMapper mapper)
         {
-            _repository = repository;
+            _service = service;
             _mapper = mapper;
         }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ComprasDto>>> GetCompras()
         {
-            var compras = await _repository.GetAllCompras();
+            var compras = await _service.GetAllCompras();
             return Ok(_mapper.Map<IEnumerable<VisitaDto>>(compras));
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<ComprasDto>> GetCompra(int id)
         {
-            var compra = await _repository.GetComprasById(id);
+            var compra = await _service.GetComprasById(id);
             if (compra == null)
             {
                 return NotFound();
@@ -44,8 +44,8 @@ namespace TheHouse.Controllers
         {
             Console.WriteLine("Entrou na request"); 
             var compra = _mapper.Map<ListaDeCompras>(response);
-            await _repository.AddCompra(compra);
-            await _repository.SaveChangesAsync();
+            await _service.AddCompra(compra);
+            await _service.SaveChangesAsync();
 
 
             var ComprasDto = _mapper.Map<ComprasDto>(compra);

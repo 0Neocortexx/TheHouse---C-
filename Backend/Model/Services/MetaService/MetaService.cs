@@ -1,34 +1,44 @@
-﻿using Model.Context;
-using Model.Repositories.MetaRepository;
+﻿using Model.Repositories.MetaRepository;
 using Model.Entities.GrupoMeta;
 using Microsoft.EntityFrameworkCore;
 
 namespace Model.Services.MetaService
 {
-    public class MetaService : IMetaRepository
-    {
-        private readonly TheHouseContext _context;
 
-        public MetaService(TheHouseContext context)
+    public interface IMetaService 
+    {
+        public Task AddMeta(Meta meta);
+        public Task<Meta?> GetMetaById(int id);
+        public Task SaveChangesAsync();
+        public Task<List<Meta>> GetAllMeta();
+    }
+
+    public class MetaService : IMetaService
+    {
+        private readonly IMetaRepository _metaRepository;
+
+        public MetaService(IMetaRepository repository)
         {
-            _context = context;
+            _metaRepository = repository;
         }
-        public async Task<IEnumerable<Meta>> GetAllMeta()
+
+        public Task AddMeta(Meta meta)
         {
-            return await _context.Meta.ToListAsync();
+            return _metaRepository.AddMeta(meta);
         }
+
         public async Task<Meta?> GetMetaById(int id)
         {
-            return await _context.Meta.FindAsync(id);
+            return await _metaRepository.GetMetaById(id);
         }
-        public async Task AddMeta(Meta meta)
+        public async Task<List<Meta>> GetAllMeta()
         {
-            await _context.Meta.AddAsync(meta);
+            return await _metaRepository.GetAllMeta();
         }
 
         public async Task SaveChangesAsync()
         {
-            await _context.SaveChangesAsync();
+            await _metaRepository.SaveChangesAsync();
         }
 
     }

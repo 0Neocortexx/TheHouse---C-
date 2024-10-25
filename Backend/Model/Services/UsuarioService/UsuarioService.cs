@@ -1,11 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Model.Context;
 using Model.Entities.GrupoUsuario;
-using Model.Repositories.UsuarioRepository;
 
 namespace Model.Services.UsuarioService
 {
-    public class UsuarioService : IUsuarioRepository
+    public class UsuarioService
     {
         private readonly TheHouseContext _context;
 
