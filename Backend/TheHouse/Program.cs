@@ -6,9 +6,11 @@ using Model.Profiles.UsuarioProfile;
 using Model.Profiles.VisitaProfile;
 using Model.Repositories.Compras;
 using Model.Repositories.Entretenimento;
+using Model.Repositories.Interfaces;
 using Model.Repositories.MetaRepository;
 using Model.Repositories.UsuarioRepository;
 using Model.Services.CompraService;
+using Model.Services.Interfaces;
 using Model.Services.MetaService;
 using Model.Services.UsuarioService;
 using Model.Services.VisitaService;
@@ -19,26 +21,31 @@ var builder = WebApplication.CreateBuilder(args);
 // builder.Services.AddControllersWithViews();
 
 // Configurar a conexão com o banco de dados PostgreSQL
+
 builder.Services.AddControllers();
 builder.Services.AddDbContext<TheHouseContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // builder.Services.AddAutoMapper(typeof(Program).Assembly);
-builder.Services.AddScoped<IVisitaRepository,VisitaService>();
 
-// Registro de Repositorys
-builder.Services.AddTransient<IComprasRepository, CompraService>();
-builder.Services.AddTransient<IVisitaRepository, VisitaService>();
-builder.Services.AddTransient<IUsuarioRepository, UsuarioService>();
-builder.Services.AddTransient<IMetaRepository, MetaService>();
+//// Registro de Repositorys
+builder.Services.AddTransient<ICompraRepository, CompraRepository>();
+builder.Services.AddTransient<IVisitaRepository, VisitasRepository>();
+builder.Services.AddTransient<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddTransient<IMetaRepository, MetaRepository>();
+
+// Registro de Services
+builder.Services.AddScoped<IMetaService, MetaService>();
+builder.Services.AddScoped<ICompraService, CompraService>();
+builder.Services.AddScoped<IVisitaService, VisitaService>();
+builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 
 // Registro de Mappers
 builder.Services.AddAutoMapper(typeof(UsuarioProfile).Assembly);
-builder.Services.AddAutoMapper(typeof(ComprasProfile).Assembly);
+builder.Services.AddAutoMapper(typeof(CompraProfile).Assembly);
 builder.Services.AddAutoMapper(typeof(VisitaProfile).Assembly);
 builder.Services.AddAutoMapper(typeof(MetaProfile).Assembly);
 
-// Permitindo o Cross-Origin para a aplicação front-end
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(

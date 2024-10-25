@@ -15,7 +15,7 @@ namespace Model.Context
         
         // Inserindo as entidades que virarão tabela
         public DbSet<Visita> Visita { get; set; }
-        public DbSet<ListaDeCompras> Compras { get; set; }
+        public DbSet<ListaDeCompra> Compras { get; set; }
         public DbSet<FinancaDespesa> financaDespesa { get; set; }
         public DbSet<FinancaReceita> financaReceita { get; set; }
         public DbSet<Meta> Meta { get; set; }
@@ -28,6 +28,7 @@ namespace Model.Context
                 .HasMany(c => c.Metas)
                 .WithOne(o => o.Usuario)
                 .HasForeignKey(o => o.UsuarioId);
+
             
             base.OnModelCreating(modelBuilder);
 

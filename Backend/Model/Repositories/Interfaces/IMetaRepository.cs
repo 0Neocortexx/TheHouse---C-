@@ -1,12 +1,12 @@
 ﻿using Model.Entities.GrupoMeta;
 
-namespace Model.Repositories.MetaRepository
+namespace Model.Repositories.Interfaces
 {
     public interface IMetaRepository
     {
         Task<IEnumerable<Meta>> GetAllMeta();
         Task<Meta?> GetMetaById(int id);
-        Task AddMeta(Meta meta);
         Task SaveChangesAsync();
+        Task AddMeta(Meta meta);
     }
 }

@@ -1,10 +1,9 @@
 ﻿using Model.Entities.GrupoUsuario;
 
-namespace Model.Repositories.UsuarioRepository
+namespace Model.Repositories.Interfaces
 {
     public interface IUsuarioRepository
     {
-        Task<IEnumerable<Usuario>> GetAllUsuario();
         Task<Usuario?> GetUsuarioById(int id);
         Task AddUsuario(Usuario usuario);
         Task SaveChangesAsync();

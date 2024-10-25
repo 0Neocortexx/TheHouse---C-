@@ -2,7 +2,7 @@
 using Dtos.VisitaDto;
 using Microsoft.AspNetCore.Mvc;
 using Model.Entities.Visita;
-using Model.Repositories.Entretenimento;
+using Model.Services.Interfaces;
 
 namespace VisitasApi.Controllers
 {
@@ -10,41 +10,73 @@ namespace VisitasApi.Controllers
     [ApiController]
     public class VisitaController : Controller {
 
-        private readonly IVisitaRepository _repository;
-        private readonly IMapper _mapper;
+        public  readonly IVisitaService _service;
+        public readonly IMapper _mapper;
 
-        public VisitaController(IVisitaRepository repository,IMapper mapper) {
-            _repository = repository;
+        public VisitaController(IVisitaService service,IMapper mapper) {
+            _service = service;
             _mapper = mapper;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<VisitaDto>>> GetVisitas() {
-            var visitas = await _repository.GetAllVisita();
-            return Ok(_mapper.Map<IEnumerable<VisitaDto>>(visitas));
+        public async Task<ActionResult<List<VisitaDto>>> GetVisitas() 
+        {
+            try
+            {
+                var visitas = await _service.GetAllVisita();
+
+                if (visitas == null)
+                {
+                    ActionResult actionResultNull = Ok("Não existem visitas cadastradas");
+                    return actionResultNull;
+                }
+                ActionResult actionResult = Ok(_mapper.Map<List<VisitaDto>>(visitas));
+
+                return actionResult;
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<VisitaDto>> GetVisita(int id) {
-            var visita = await _repository.GetVisitaById(id);
-            if(visita == null) {
-                return NotFound();
+            try
+            {
+                var visita = await _service.GetVisitaById(id);
+
+                if (visita == null)
+                {
+                    return NotFound();
+                }
+                return Ok(_mapper.Map<VisitaDto>(visita));
             }
-            return Ok(_mapper.Map<VisitaDto>(visita));
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
 
         [HttpPost]
-        public async Task<ActionResult<VisitaDto>> CreateVisita(CreateVisitaDto visitasDto) {
-            
-            var visita = _mapper.Map<Visita>(visitasDto);
+        public async Task<ActionResult<VisitaDto>> CreateVisita(CreateVisitaDto visitasDto) 
+        {
+            try
+            {
+                var visita = _mapper.Map<Visita>(visitasDto);
 
-            await _repository.AddVisita(visita);
+                await _service.AddVisita(visita);
 
-            await _repository.SaveChangesAsync();
+                await _service.SaveChangesAsync();
 
-            var visitaDto = _mapper.Map<VisitaDto>(visita);
+                var visitaDto = _mapper.Map<VisitaDto>(visita);
 
-            return CreatedAtAction(nameof(GetVisita),new { id = visitaDto.Id },visitaDto);
+                return CreatedAtAction(nameof(GetVisita), new { id = visitaDto.Id }, visitaDto);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
 
     }

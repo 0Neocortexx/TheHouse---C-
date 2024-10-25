@@ -3,7 +3,8 @@ using Dtos.VisitaDto;
 using Microsoft.AspNetCore.Mvc;
 using Model.DTOs.Compras;
 using Model.Entities.Compras;
-using Model.Repositories.Compras;
+using Model.Services.CompraService;
+using Model.Services.Interfaces;
 
 namespace TheHouse.Controllers
 {
@@ -12,26 +13,40 @@ namespace TheHouse.Controllers
     public class ComprasController : Controller
     {
 
-        private readonly IComprasRepository _repository;
+        private readonly ICompraService _service;
         private readonly IMapper _mapper;
 
-        public ComprasController(IComprasRepository repository, IMapper mapper)
+        public ComprasController(ICompraService service, IMapper mapper)
         {
-            _repository = repository;
+            _service = service;
             _mapper = mapper;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ComprasDto>>> GetCompras()
+        public async Task<ActionResult<List<ComprasDto>>> GetCompras()
         {
-            var compras = await _repository.GetAllCompras();
-            return Ok(_mapper.Map<IEnumerable<VisitaDto>>(compras));
+            try
+            {
+                var compras = await _service.GetAllCompras();
+
+                if(compras == null)
+                {
+                    ActionResult actionNull = Ok("Nenhuma compra encontrada!");
+                    return actionNull;
+                }
+
+                return Ok(_mapper.Map<List<ListaDeCompra>>(compras));
+            }
+            catch (Exception ex) 
+            {
+                return StatusCode(500, ex.Message.ToString());
+            }
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<ComprasDto>> GetCompra(int id)
         {
-            var compra = await _repository.GetComprasById(id);
+            var compra = await _service.GetCompraById(id);
             if (compra == null)
             {
                 return NotFound();
@@ -40,18 +55,24 @@ namespace TheHouse.Controllers
         }
 
         [HttpPost]
-        public async Task<string> CreateCompra(CreateComprasDto response)
+        public async Task<ActionResult<ComprasDto>> CreateCompra(CreateComprasDto response)
         {
-            Console.WriteLine("Entrou na request"); 
-            var compra = _mapper.Map<ListaDeCompras>(response);
-            await _repository.AddCompra(compra);
-            await _repository.SaveChangesAsync();
+            try
+            {
+                var compra = _mapper.Map<ListaDeCompra>(response);
 
+                await _service.AddCompra(compra);
 
-            var ComprasDto = _mapper.Map<ComprasDto>(compra);
-            Console.WriteLine(ComprasDto);
-            // return CreatedAtAction(nameof(GetCompra), new { id = ComprasDto.Id }, ComprasDto);
-            return "OK";
+                await _service.SaveChangesAsync();
+
+                var ComprasDto = _mapper.Map<ComprasDto>(compra);
+
+                return CreatedAtAction(nameof(GetCompra), new { id = ComprasDto.Id }, ComprasDto);
+            }
+            catch(Exception e)
+            {
+                return StatusCode(500, "Erro interno do servidor! \n" + "Erro: " + e);
+            }
         }
 
     }

@@ -1,35 +1,34 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Model.Context;
-using Model.Entities.Visita;
-using Model.Repositories.Entretenimento;
+﻿using Model.Entities.Visita;
+using Model.Repositories.Interfaces;
+using Model.Services.Interfaces;
 
 namespace Model.Services.VisitaService
 {
-    public class VisitaService : IVisitaRepository
+    public class VisitaService : IVisitaService
     {
-        private readonly TheHouseContext _context;
+        public readonly IVisitaRepository _repository;
 
-        public VisitaService(TheHouseContext context)
+        public VisitaService(IVisitaRepository visitasRepository)
         {
-            _context = context;
+            _repository = visitasRepository ;
         }
-        public async Task<IEnumerable<Visita>> GetAllVisita()
+        public async Task<List<Visita>> GetAllVisita()
         {
-            return await _context.Visita.ToListAsync();
+            return (await _repository.GetAllVisita()).ToList();
         }
 
         public async Task<Visita?> GetVisitaById(int id)
         {
-            return await _context.Visita.FindAsync(id);
+            return await _repository.GetVisitaById(id);
         }
 
         public async Task AddVisita(Visita visita)
         {
-            await _context.Visita.AddAsync(visita);
+            await _repository.AddVisita(visita);
         }
         public async Task SaveChangesAsync()
         {
-            await _context.SaveChangesAsync();
+            await _repository.SaveChangesAsync();
         }
     }
 }

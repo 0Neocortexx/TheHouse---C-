@@ -8,7 +8,7 @@ const objlist = ref([]);
 // Função para buscar a API
 const fetchApi = async () => { 
     try {
-        const response = await fetch(`https://localhost:7198/api/meta`);
+        const response = await fetch(`http://localhost:7198/api/meta`);
         const data = await response.json();
 
         // Preenche a lista de objetos reativamente

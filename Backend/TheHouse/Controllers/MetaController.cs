@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Model.DTOs.MetaDto;
 using Model.Entities.GrupoMeta;
-using Model.Repositories.MetaRepository;
+using Model.Services.Interfaces;
 
 namespace TheHouse.Controllers
 {
@@ -10,27 +10,44 @@ namespace TheHouse.Controllers
     [ApiController]
     public class MetaController : Controller
     {
-        private readonly IMetaRepository _repository;
+        private readonly IMetaService _service;
         private readonly IMapper _mapper;
 
-        public MetaController(IMetaRepository repository, IMapper mapper)
+        public MetaController(IMetaService service, IMapper mapper)
         {
-            _repository = repository;
+            _service = service;
             _mapper = mapper;
         }
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Meta>>> GetMetas() 
+        public async Task<ActionResult<List<MetaDto>>> GetMetas() 
         {
-            var metas = await _repository.GetAllMeta();
-            ActionResult action = Ok((metas));
-            return action;
+            try
+            {
+                List<Meta> metas = await _service.GetAllMeta();
+
+                if (metas == null)
+                {
+                    ActionResult actionNull = Ok("Nenhuma meta encontrada!");
+                    return actionNull;
+                }
+
+                ActionResult action = Ok(_mapper.Map<List<MetaDto>>(metas));
+
+                return action;
+            } 
+            catch(Exception ex)
+            {
+                return StatusCode(500, ex.Message.ToString());
+            }
+
         }
         [HttpGet("{id}")]
         public async Task<ActionResult<Meta>> GetMetaById(int id)
         {
             try
             {
-                var meta = await _repository.GetMetaById(id);
+                var meta = await _service.GetMetaById(id);
+
                 if (meta == null)
                 {
                     return NotFound();
@@ -39,7 +56,6 @@ namespace TheHouse.Controllers
 
             } catch(Exception ex)
             {
-                Console.WriteLine(ex.Message.ToString());
                 return StatusCode(500, ex.Message.ToString());
             }
         }
@@ -50,9 +66,13 @@ namespace TheHouse.Controllers
             try
             {
                 var meta = _mapper.Map<Meta>(createMetaDto);
-                await _repository.AddMeta(meta);
-                await _repository.SaveChangesAsync();
+
+                await _service.AddMeta(meta);
+
+                await _service.SaveChangesAsync();
+
                 var response = _mapper.Map<MetaDto>(meta);
+
                 return CreatedAtAction(nameof(GetMetaById), new { id = response.Id }, response);
             }
             catch (Exception e)
