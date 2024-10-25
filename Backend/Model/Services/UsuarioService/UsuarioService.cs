@@ -1,36 +1,30 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Model.Context;
-using Model.Entities.GrupoUsuario;
+﻿using Model.Entities.GrupoUsuario;
+using Model.Repositories.Interfaces;
+using Model.Services.Interfaces;
 
 namespace Model.Services.UsuarioService
 {
-    public class UsuarioService
+    public class UsuarioService : IUsuarioService
     {
-        private readonly TheHouseContext _context;
-
-        public UsuarioService(TheHouseContext context)
+        public readonly IUsuarioRepository _repository;
+        public UsuarioService(IUsuarioRepository usuarioRepository) 
         {
-            _context = context;
-        }
-
-        public async Task<IEnumerable<Usuario>> GetAllUsuario()
-        {
-            return await _context.Usuario.ToListAsync();
+            _repository = usuarioRepository;
         }
 
         public async Task<Usuario?> GetUsuarioById(int id)
         {
-            return await _context.Usuario.FindAsync(id);
+            return await _repository.GetUsuarioById(id);
         }
 
         public async Task AddUsuario(Usuario usuario)
         {
-            await _context.Usuario.AddAsync(usuario);
+            await _repository.AddUsuario(usuario);
         }
 
         public async Task SaveChangesAsync()
         {
-            await _context.SaveChangesAsync();
+            await _repository.SaveChangesAsync();
         }
     }
 }

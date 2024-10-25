@@ -1,15 +1,15 @@
 ﻿namespace Model.Entities.Compras {
-    public class ListaDeCompras {
+    public class ListaDeCompra {
         public int Id { get; set; }
         public string Produto { get; set; }
         public int Quantidade { get; set; }
         public decimal PrecoUnitario { get; set; }
         public bool PossuiNoEstoque { get; set; }
          
-        public ListaDeCompras() {
+        public ListaDeCompra() {
         }
 
-        public ListaDeCompras(int id,string produto,int quantidade,decimal precoUnitario,bool possuiNoEstoque) {
+        public ListaDeCompra(int id,string produto,int quantidade,decimal precoUnitario,bool possuiNoEstoque) {
             Id = id;
             Produto = produto;
             Quantidade = quantidade;

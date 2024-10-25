@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Model.DTOs.MetaDto;
 using Model.Entities.GrupoMeta;
-using Model.Services.MetaService;
+using Model.Services.Interfaces;
 
 namespace TheHouse.Controllers
 {
@@ -19,19 +19,26 @@ namespace TheHouse.Controllers
             _mapper = mapper;
         }
         [HttpGet]
-        public async Task<ActionResult> GetMetas() 
+        public async Task<ActionResult<List<MetaDto>>> GetMetas() 
         {
-            List<Meta> metas = await _service.GetAllMeta();
-
-            if(metas == null)
+            try
             {
-                ActionResult actionNull = Ok("Nenhuma meta encontrada!");
-                return actionNull;
+                List<Meta> metas = await _service.GetAllMeta();
+
+                if (metas == null)
+                {
+                    ActionResult actionNull = Ok("Nenhuma meta encontrada!");
+                    return actionNull;
+                }
+
+                ActionResult action = Ok(_mapper.Map<List<MetaDto>>(metas));
+
+                return action;
+            } 
+            catch(Exception ex)
+            {
+                return StatusCode(500, ex.Message.ToString());
             }
-
-            ActionResult action = Ok(_mapper.Map<List<MetaDto>>(metas));
-
-            return action;
 
         }
         [HttpGet("{id}")]
@@ -40,6 +47,7 @@ namespace TheHouse.Controllers
             try
             {
                 var meta = await _service.GetMetaById(id);
+
                 if (meta == null)
                 {
                     return NotFound();
@@ -48,7 +56,6 @@ namespace TheHouse.Controllers
 
             } catch(Exception ex)
             {
-                Console.WriteLine(ex.Message.ToString());
                 return StatusCode(500, ex.Message.ToString());
             }
         }
@@ -59,9 +66,13 @@ namespace TheHouse.Controllers
             try
             {
                 var meta = _mapper.Map<Meta>(createMetaDto);
+
                 await _service.AddMeta(meta);
+
                 await _service.SaveChangesAsync();
+
                 var response = _mapper.Map<MetaDto>(meta);
+
                 return CreatedAtAction(nameof(GetMetaById), new { id = response.Id }, response);
             }
             catch (Exception e)

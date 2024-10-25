@@ -1,17 +1,10 @@
-﻿using Model.Repositories.MetaRepository;
-using Model.Entities.GrupoMeta;
-using Microsoft.EntityFrameworkCore;
+﻿using Model.Entities.GrupoMeta;
+using Model.Repositories.Interfaces;
+using Model.Services.Interfaces;
+
 
 namespace Model.Services.MetaService
 {
-
-    public interface IMetaService 
-    {
-        public Task AddMeta(Meta meta);
-        public Task<Meta?> GetMetaById(int id);
-        public Task SaveChangesAsync();
-        public Task<List<Meta>> GetAllMeta();
-    }
 
     public class MetaService : IMetaService
     {
@@ -33,7 +26,7 @@ namespace Model.Services.MetaService
         }
         public async Task<List<Meta>> GetAllMeta()
         {
-            return await _metaRepository.GetAllMeta();
+            return (await _metaRepository.GetAllMeta()).ToList();
         }
 
         public async Task SaveChangesAsync()

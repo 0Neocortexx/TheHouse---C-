@@ -8,11 +8,8 @@ namespace Model.Profiles.MetaProfile
     {
         public MetaProfile() 
         {
-            CreateMap<Meta, MetaDto>(); // Mapeamento de Meta para MetaDto
-            CreateMap<MetaDto, Meta>(); // Mapeamento de MetaDto para Meta
-            CreateMap<CreateMetaDto, Meta>();
-            CreateMap<List<Meta>, List<MetaDto>>();
-            CreateMap<List<MetaDto>, List<Meta>>();
+            CreateMap<Meta, MetaDto>().ReverseMap(); // Mapeamento de Meta para MetaDto
+            CreateMap<CreateMetaDto, Meta>().ReverseMap();
         }
     }
 }

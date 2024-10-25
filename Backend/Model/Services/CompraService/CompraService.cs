@@ -1,35 +1,34 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Model.Context;
-using Model.Entities.Compras;
-using Model.Repositories.Compras;
+﻿using Model.Entities.Compras;
+using Model.Repositories.Interfaces;
+using Model.Services.Interfaces;
 
 namespace Model.Services.CompraService
 {
-    public class CompraService : IComprasRepository
+    public class CompraService : ICompraService
     {
-        private readonly TheHouseContext _context;
-        public CompraService(TheHouseContext context)
+        private readonly ICompraRepository _compraRepository;
+        public CompraService(ICompraRepository compraRepository)
         {
-            _context = context;
+            _compraRepository = compraRepository;
         }
-        public async Task<IEnumerable<ListaDeCompras>> GetAllCompras()
+        public async Task<List<ListaDeCompra>> GetAllCompras()
         {
-            return await _context.Compras.ToListAsync();
-        }
-
-        public async Task<ListaDeCompras?> GetComprasById(int id)
-        {
-            return await _context.Compras.FindAsync(id);
+            return (await _compraRepository.GetAllCompras()).ToList();
         }
 
-        public async Task AddCompra(ListaDeCompras compras)
+        public async Task<ListaDeCompra?> GetCompraById(int id)
         {
-            await _context.Compras.AddAsync(compras);
+            return await _compraRepository.GetCompraById(id);
+        }
+
+        public async Task AddCompra(ListaDeCompra compras)
+        {
+            await _compraRepository.AddCompra(compras);
         }
 
         public async Task SaveChangesAsync()
         {
-            await _context.SaveChangesAsync();
+            await _compraRepository.SaveChangesAsync();
         }
 
     }

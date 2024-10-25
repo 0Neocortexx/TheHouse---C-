@@ -4,8 +4,8 @@ using Model.Entities.Compras;
 
 namespace Model.Mappings.Compras
 {
-    public class ComprasMap :IEntityTypeConfiguration<ListaDeCompras> {
-        public void Configure(EntityTypeBuilder<ListaDeCompras> builder) {
+    public class CompraMap :IEntityTypeConfiguration<ListaDeCompra> {
+        public void Configure(EntityTypeBuilder<ListaDeCompra> builder) {
             builder.ToTable("ListaDeCompras");
             builder.HasKey(e => e.Id);
             builder.Property(e => e.Id).ValueGeneratedOnAdd();
