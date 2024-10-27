@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Model.DTOs.MetaDto;
 using Model.Entities.GrupoMeta;
@@ -19,6 +20,7 @@ namespace TheHouse.Controllers
             _mapper = mapper;
         }
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<List<MetaDto>>> GetMetas() 
         {
             try
@@ -42,6 +44,7 @@ namespace TheHouse.Controllers
 
         }
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<Meta>> GetMetaById(int id)
         {
             try
@@ -61,6 +64,7 @@ namespace TheHouse.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<MetaDto>> AddMeta(CreateMetaDto createMetaDto)
         {
             try

@@ -18,6 +18,14 @@ namespace Model.Repositories.UsuarioRepository
             return await _context.Usuario.FindAsync(id);
         }
 
+        public Usuario? GetUsuarioByEmail(string email)
+        {
+            return _context.Usuario.ToList().Where(u => u.Email.Equals(email)).FirstOrDefault();
+            // O Where Fará um select na tabela Usuario procurando um email que seja igual ao email procurado
+            // Se utilizar somente o First, caso não seja encontrado nada, ocorrerá erro
+            // FirstOrDefault pegará o primeiro item da lista ou retornará nulo
+        }
+
         public async Task AddUsuario(Usuario usuario)
         {
             await _context.Usuario.AddAsync(usuario);

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Dtos.VisitaDto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Model.DTOs.Compras;
 using Model.Entities.Compras;
@@ -23,6 +24,7 @@ namespace TheHouse.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<List<ComprasDto>>> GetCompras()
         {
             try
@@ -44,6 +46,7 @@ namespace TheHouse.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<ComprasDto>> GetCompra(int id)
         {
             var compra = await _service.GetCompraById(id);

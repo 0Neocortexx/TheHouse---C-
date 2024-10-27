@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Dtos.VisitaDto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Model.Entities.Visita;
 using Model.Services.Interfaces;
@@ -19,6 +20,7 @@ namespace VisitasApi.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<List<VisitaDto>>> GetVisitas() 
         {
             try
@@ -41,6 +43,7 @@ namespace VisitasApi.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<VisitaDto>> GetVisita(int id) {
             try
             {
@@ -59,11 +62,12 @@ namespace VisitasApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<VisitaDto>> CreateVisita(CreateVisitaDto visitasDto) 
+        [Authorize]
+        public async Task<ActionResult<VisitaDto>> CreateVisita(CreateVisitaDto createVisitasDto) 
         {
             try
             {
-                var visita = _mapper.Map<Visita>(visitasDto);
+                var visita = _mapper.Map<Visita>(createVisitasDto);
 
                 await _service.AddVisita(visita);
 
