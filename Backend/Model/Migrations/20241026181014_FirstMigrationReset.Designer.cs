@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Model.Migrations
 {
     [DbContext(typeof(TheHouseContext))]
-    [Migration("20240908174339_migration_08-09-2024_3")]
-    partial class migration_08092024_3
+    [Migration("20241026181014_FirstMigrationReset")]
+    partial class FirstMigrationReset
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace Model.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Model.Entities.Compras.ListaDeCompras", b =>
+            modelBuilder.Entity("Model.Entities.Compras.ListaDeCompra", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -104,7 +104,7 @@ namespace Model.Migrations
                     b.ToTable("FinancaReceita", (string)null);
                 });
 
-            modelBuilder.Entity("Model.Entities.Metas.Meta", b =>
+            modelBuilder.Entity("Model.Entities.GrupoMeta.Meta", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -112,7 +112,7 @@ namespace Model.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("DataMeta")
+                    b.Property<DateTime>("DataObjetivo")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("MetaStatus")
@@ -124,61 +124,57 @@ namespace Model.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("character varying(256)");
 
-                    b.Property<decimal>("ValorAtual")
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("integer");
+
+                    b.Property<decimal>("ValorAdquirido")
                         .HasColumnType("numeric");
 
-                    b.Property<decimal>("ValorFinal")
+                    b.Property<decimal>("ValorTotalMeta")
                         .HasColumnType("numeric");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("UsuarioId");
+
                     b.ToTable("Metas", (string)null);
                 });
 
-            modelBuilder.Entity("Model.Entities.Usuario.Usuario", b =>
+            modelBuilder.Entity("Model.Entities.GrupoUsuario.Usuario", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int?>("Id"));
 
                     b.Property<string>("Bairro")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Cep")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Cidade")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("character varying(256)");
 
                     b.Property<string>("Estado")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Genero")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Nome")
-                        .IsRequired()
                         .HasMaxLength(128)
                         .HasColumnType("character varying(128)");
 
                     b.Property<string>("Pais")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Senha")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -210,6 +206,22 @@ namespace Model.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Visita", (string)null);
+                });
+
+            modelBuilder.Entity("Model.Entities.GrupoMeta.Meta", b =>
+                {
+                    b.HasOne("Model.Entities.GrupoUsuario.Usuario", "Usuario")
+                        .WithMany("Metas")
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("Model.Entities.GrupoUsuario.Usuario", b =>
+                {
+                    b.Navigation("Metas");
                 });
 #pragma warning restore 612, 618
         }

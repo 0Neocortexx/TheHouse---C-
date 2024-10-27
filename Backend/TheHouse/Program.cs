@@ -1,4 +1,6 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Model.Context;
 using Model.Profiles.Compras;
 using Model.Profiles.MetaProfile;
@@ -14,6 +16,7 @@ using Model.Services.Interfaces;
 using Model.Services.MetaService;
 using Model.Services.UsuarioService;
 using Model.Services.VisitaService;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -55,30 +58,44 @@ builder.Services.AddCors(options =>
         });
 });
 
+// Adicionar serviços de autenticação JWT
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("TheHouseTokenSuperSecretKeyMaster2024")),
+        ValidateIssuer = false,
+        ValidateAudience = false
+    };
+});
+
+
 
 var app = builder.Build();
 
+// app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseRouting();
+app.UseAuthentication(); // Ativa a autenticaçã
+app.UseAuthorization();
+app.UseCors();
 
 // Configure the HTTP request pipeline.
-if(!app.Environment.IsDevelopment())
+if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
-app.UseStaticFiles();
-
-app.UseRouting();
-
-app.UseAuthorization();
-
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-
-app.UseCors();
 
 // Roda a aplicação
 app.Run();

@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Model.Migrations
 {
     /// <inheritdoc />
-    public partial class migration140724 : Migration
+    public partial class FirstMigrationReset : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -61,24 +61,28 @@ namespace Model.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "meta",
+                name: "Usuario",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    NomeMeta = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: false),
-                    DataMeta = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    ValorAtual = table.Column<decimal>(type: "numeric", nullable: false),
-                    ValorFinal = table.Column<decimal>(type: "numeric", nullable: false),
-                    MetaStatus = table.Column<string>(type: "text", nullable: false)
+                    Email = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
+                    Nome = table.Column<string>(type: "character varying(128)", maxLength: 128, nullable: true),
+                    Senha = table.Column<string>(type: "text", nullable: true),
+                    Genero = table.Column<string>(type: "text", nullable: true),
+                    Cep = table.Column<string>(type: "text", nullable: true),
+                    Bairro = table.Column<string>(type: "text", nullable: true),
+                    Cidade = table.Column<string>(type: "text", nullable: true),
+                    Estado = table.Column<string>(type: "text", nullable: true),
+                    Pais = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_meta", x => x.Id);
+                    table.PrimaryKey("PK_Usuario", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Visitas",
+                name: "Visita",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -89,8 +93,37 @@ namespace Model.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Visitas", x => x.Id);
+                    table.PrimaryKey("PK_Visita", x => x.Id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Metas",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    NomeMeta = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: false),
+                    DataObjetivo = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    ValorAdquirido = table.Column<decimal>(type: "numeric", nullable: false),
+                    ValorTotalMeta = table.Column<decimal>(type: "numeric", nullable: false),
+                    MetaStatus = table.Column<string>(type: "text", nullable: false),
+                    UsuarioId = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Metas", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Metas_Usuario_UsuarioId",
+                        column: x => x.UsuarioId,
+                        principalTable: "Usuario",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Metas_UsuarioId",
+                table: "Metas",
+                column: "UsuarioId");
         }
 
         /// <inheritdoc />
@@ -106,10 +139,13 @@ namespace Model.Migrations
                 name: "ListaDeCompras");
 
             migrationBuilder.DropTable(
-                name: "meta");
+                name: "Metas");
 
             migrationBuilder.DropTable(
-                name: "Visitas");
+                name: "Visita");
+
+            migrationBuilder.DropTable(
+                name: "Usuario");
         }
     }
 }

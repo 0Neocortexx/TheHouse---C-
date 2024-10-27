@@ -6,9 +6,10 @@ namespace Model.Profiles.VisitaProfile
 {
     public class VisitaProfile : Profile {
         public VisitaProfile() {
-
-            CreateMap<Visita, VisitaDto>().ReverseMap();
-            CreateMap<CreateVisitaDto, Visita>().ReverseMap();
+            CreateMap<Visita, VisitaDto>()
+                .ReverseMap();
+            CreateMap<CreateVisitaDto, Visita>()
+                .ReverseMap();
         }
     }
 }

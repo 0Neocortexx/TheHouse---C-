@@ -5,16 +5,16 @@ namespace Model.Entities.GrupoUsuario
 {
     public class Usuario
     {
-        public int Id { get; set; }
-        public string Email { get; set; }
-        public string Nome { get; set; }
-        public string Senha { get; set; }
-        public GeneroEnum Genero { get; set; }
-        public string Cep { get; set; }
-        public String Bairro { get; set; }
-        public string Cidade { get; set; }
-        public string Estado { get; set; }
-        public string Pais { get; set; }
+        public int? Id { get; set; }
+        public string? Email { get; set; }
+        public string? Nome { get; set; }
+        public string? Senha { get; set; }
+        public GeneroEnum? Genero { get; set; }
+        public string? Cep { get; set; }
+        public string? Bairro { get; set; }
+        public string? Cidade { get; set; }
+        public string? Estado { get; set; }
+        public string? Pais { get; set; }
 
         // Define a navegação para as metas dos usuarios
         public ICollection<Meta> Metas { get; set; }

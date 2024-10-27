@@ -1,4 +1,5 @@
-﻿using Model.Entities.GrupoUsuario;
+﻿using Model.DTOs.UsuarioDto;
+using Model.Entities.GrupoUsuario;
 
 namespace Model.Services.Interfaces
 {
@@ -6,6 +7,7 @@ namespace Model.Services.Interfaces
     {
         public Task<Usuario?> GetUsuarioById(int id);
         public Task AddUsuario(Usuario usuario);
+        public UsuarioLoginDto? GetUsuarioByEmail(string email);
         public Task SaveChangesAsync();
     }
 }
