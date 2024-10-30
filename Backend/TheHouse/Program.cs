@@ -20,16 +20,10 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// builder.Services.AddControllersWithViews();
-
-// Configurar a conexão com o banco de dados PostgreSQL
-
 builder.Services.AddControllers();
 builder.Services.AddDbContext<TheHouseContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
 //// Registro de Repositorys
 builder.Services.AddTransient<ICompraRepository, CompraRepository>();
@@ -49,6 +43,7 @@ builder.Services.AddAutoMapper(typeof(CompraProfile).Assembly);
 builder.Services.AddAutoMapper(typeof(VisitaProfile).Assembly);
 builder.Services.AddAutoMapper(typeof(MetaProfile).Assembly);
 
+// Inserindo o crossorigin
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(
@@ -74,26 +69,29 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+builder.Services.AddControllers();
+
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+
 var app = builder.Build();
 
-// app.UseHttpsRedirection();
-app.UseStaticFiles();
-app.UseRouting();
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+
 app.UseAuthentication(); // Ativa a autenticaçã
 app.UseAuthorization();
 app.UseCors();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-    app.UseHsts();
-}
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapControllers();
 
-
-// Roda a aplicação
 app.Run();
