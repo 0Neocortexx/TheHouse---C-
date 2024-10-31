@@ -6,8 +6,13 @@ namespace Model.Services.Interfaces
     public interface IUsuarioService
     {
         public Task<Usuario?> GetUsuarioById(int id);
-        public Task AddUsuario(Usuario usuario);
+        public Task AddUsuario(UsuarioCadastroDto usuario);
         public UsuarioLoginDto? GetUsuarioByEmail(string email);
-        public Task SaveChangesAsync();
+        public bool TemCampoVazioLogin(UsuarioLoginDto usuario);
+        public bool TemCampoVazioCadastro(UsuarioCadastroDto usuario);
+        public bool IsLoginVerificado(UsuarioLoginDto usuario);
+        public string GerarTokenUsuario(string email);
+        public bool IsEmailJaCadastrado(string email);
+
     }
 }
