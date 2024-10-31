@@ -7,9 +7,8 @@ namespace Model.Profiles.UsuarioProfile
     public class UsuarioProfile : Profile
     {
         public UsuarioProfile() {
-            CreateMap<Usuario, UsuarioDto>().ReverseMap(); // Mapear de Usuario para UsuarioDto
 
-            CreateMap<CreateUsuarioDto, Usuario>().ReverseMap();
+            CreateMap<Usuario, UsuarioDto>().ReverseMap();
 
             CreateMap<UsuarioLoginDto, Usuario>().ReverseMap();
 

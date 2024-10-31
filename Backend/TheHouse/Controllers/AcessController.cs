@@ -2,8 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Model.DTOs.UsuarioDto;
 using Model.Entities.GrupoUsuario;
-using Model.Security;
+using Security.AcessToken;
 using Model.Services.Interfaces;
+using Security.Criptopass;
+using Util.ManipulationStrings;
 
 namespace TheHouse.Controllers
 {
@@ -25,18 +27,22 @@ namespace TheHouse.Controllers
         {
             try
             {
-                UsuarioLoginDto? usuarioLoginBanco = _service.GetUsuarioByEmail(usuarioLoginDto.Email);
+                // Verificar se a senha ou o email estão vazios (Irá para outra DLL)
+                if (_service.TemCampoVazioLogin(usuarioLoginDto) == true)
+                    return StatusCode(500, "Algum campo está vazio");
 
-                if (usuarioLoginBanco == null || !usuarioLoginBanco.Senha.Equals(usuarioLoginDto.Senha))
-                {
+                // Formata o email removendo os espaços e colocando em lowercase
+                usuarioLoginDto.Email = LoginStrings.FormatarEmail(usuarioLoginDto.Email);
+
+                // Realiza a verificação do login
+                if(_service.IsLoginVerificado(usuarioLoginDto) == false)
                     return Unauthorized();
-                }
 
-                TheHouseToken theHouseToken = new TheHouseToken();
+                // Gera um novo token para o usuario
+                string token = _service.GerarTokenUsuario(usuarioLoginDto.Email);
 
-                string token = theHouseToken.GerarToken(usuarioLoginBanco.Email);
-
-                ResponseUsuarioLogin response = new ResponseUsuarioLogin() { Email = usuarioLoginBanco.Email, Token = token };
+                // Retorna a response com o email e o token de usuário
+                ResponseUsuarioLogin response = new ResponseUsuarioLogin() { Email = usuarioLoginDto.Email, Token = token };
 
                 return Ok(response);
             }
@@ -51,25 +57,24 @@ namespace TheHouse.Controllers
         {
             try
             {
-                UsuarioLoginDto? usuarioBanco = _service.GetUsuarioByEmail(usuarioCadastro.Email);
+                // Verificar se a senha ou o email estão vazios (Irá para outra DLL)
+                if (_service.TemCampoVazioCadastro(usuarioCadastro) == true)
+                    return StatusCode(500, "Preencha todos os campos!");
 
-                usuarioCadastro.Email.ToLower();
+                // Formata o email recebido
+                usuarioCadastro.Email = LoginStrings.FormatarEmail(usuarioCadastro.Email);
 
-                if (usuarioBanco != null)
-                {
-                    return StatusCode(500, "Esse email já existe no sistema!");
-                }
+                // Verifica se o email já existe na base de dados
+                if (_service.IsEmailJaCadastrado(usuarioCadastro.Email) == true)
+                    return StatusCode(500, "Email já cadastrado!");
 
-                Usuario newUsuario = _mapper.Map<Usuario>(usuarioCadastro);
+                // Adiciona no banco
+                await _service.AddUsuario(usuarioCadastro);
 
-                await _service.AddUsuario(newUsuario);
+                // Gera um novo token para o usuario
+                string token = _service.GerarTokenUsuario(usuarioCadastro.Email);
 
-                await _service.SaveChangesAsync();
-
-                TheHouseToken theHouseToken = new TheHouseToken();
-
-                string token = theHouseToken.GerarToken(usuarioCadastro.Email);
-
+                // Monta uma nova entidade de resposta
                 ResponseUsuarioLogin novoUsuario = new ResponseUsuarioLogin() { Email = usuarioCadastro.Email, Token = token};
 
                 return Ok(novoUsuario);
