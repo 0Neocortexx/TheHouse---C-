@@ -3,17 +3,15 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Model.DTOs.CompraDto.Mercado;
 using Model.Services.Interfaces;
-using Npgsql.Replication.PgOutput.Messages;
 
 namespace TheHouse.Controllers.Compras
 {
     [ApiController]
-    [Route("api")]
+    [Route("api/mercado")]
     public class MercadoController : Controller
     {
         private readonly IMercadoService _mercadoService;
         private readonly IMapper _mapper;
-
         public MercadoController(IMercadoService mercadoService, IMapper mapper)
         {
             _mercadoService = mercadoService;
@@ -21,7 +19,7 @@ namespace TheHouse.Controllers.Compras
         }
 
         [Authorize]
-        [HttpGet("mercado")]
+        [HttpGet]
         public async Task<ActionResult<List<GetMercadoDto>>> GetMercados()
         {
             try
@@ -40,7 +38,7 @@ namespace TheHouse.Controllers.Compras
         }
 
         [Authorize]
-        [HttpGet("mercado/{id}")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<GetMercadoDto>> GetMercado(int id)
         {
             try
@@ -52,7 +50,6 @@ namespace TheHouse.Controllers.Compras
 
                 return Ok(mercado);
             }
-
             catch (Exception ex)
             {
                 return StatusCode(500, ex.Message);
@@ -60,14 +57,12 @@ namespace TheHouse.Controllers.Compras
         }
 
         [Authorize]
-        [HttpPost("mercado/novo")]
+        [HttpPost("novo")]
         public async Task<ActionResult> CreateCompra([FromBody] CreateMercadoDto data)
         {
             try
             {
                 await _mercadoService.AddMercado(data);
-                
-
                 return Ok();
             }
             catch (Exception e)

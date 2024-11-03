@@ -7,12 +7,11 @@ using Model.Services.Interfaces;
 namespace TheHouse.Controllers.Compras
 {
     [ApiController]
-    [Route("api")]
+    [Route("api/itemcompra")]
     public class ItemListaCompraController : Controller
     {
         private readonly IItemListaCompraService _service;
         private readonly IMapper _mapper;
-
         public ItemListaCompraController(IItemListaCompraService itemListaCompraService, IMapper mapper)
         {
             _service = itemListaCompraService;
@@ -20,7 +19,7 @@ namespace TheHouse.Controllers.Compras
         }
 
         [Authorize]
-        [HttpGet("itemcompra")]
+        [HttpGet]
         public async Task<ActionResult<List<GetItemListaCompraDto>>> GetCompras()
         {
             try
@@ -39,7 +38,7 @@ namespace TheHouse.Controllers.Compras
         }
 
         [Authorize]
-        [HttpGet("itemcompra/{id}")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<GetItemListaCompraDto>> GetCompra(int id)
         {
             try
@@ -51,7 +50,6 @@ namespace TheHouse.Controllers.Compras
 
                 return Ok(compra);
             }
-
             catch (Exception ex)
             {
                 return StatusCode(500, ex.Message);
@@ -59,7 +57,7 @@ namespace TheHouse.Controllers.Compras
         }
 
         [Authorize]
-        [HttpPost("itemcompra/novo")]
+        [HttpPost("novo")]
         public async Task<ActionResult> CreateCompra([FromBody] CreateItemListaCompraDto data)
         {
             try

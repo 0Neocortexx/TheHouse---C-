@@ -10,7 +10,6 @@ namespace Model.Services.Compras
     {
         private readonly IItemListaCompraRepository _repository;
         public readonly IMapper _mapper;
-
         public ItemListaCompraService(IItemListaCompraRepository compraRepository, IMapper mapper)
         {
             _repository = compraRepository;
