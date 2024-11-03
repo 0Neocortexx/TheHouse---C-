@@ -27,7 +27,6 @@ namespace Model.Services.Compras
                     return null;
 
                 return _mapper.Map<List<GetListaCompraDto>>(compras);
-
             }
 
             catch (Exception ex)
@@ -36,6 +35,7 @@ namespace Model.Services.Compras
                 throw;
             }
         }
+
         public async Task<GetListaCompraDto?> GetListaCompraById(int id) 
         {
             try
@@ -53,6 +53,7 @@ namespace Model.Services.Compras
                 throw;
             }
         }
+
         public async Task AddListaCompra(CreateListaCompraDto listaCompra)
         {
             try
@@ -69,6 +70,5 @@ namespace Model.Services.Compras
                 throw;
             }
         }
-
     }
 }

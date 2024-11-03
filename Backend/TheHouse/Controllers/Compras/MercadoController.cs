@@ -13,7 +13,6 @@ namespace TheHouse.Controllers.Compras
     {
         private readonly IMercadoService _mercadoService;
         private readonly IMapper _mapper;
-
         public MercadoController(IMercadoService mercadoService, IMapper mapper)
         {
             _mercadoService = mercadoService;
@@ -52,7 +51,6 @@ namespace TheHouse.Controllers.Compras
 
                 return Ok(mercado);
             }
-
             catch (Exception ex)
             {
                 return StatusCode(500, ex.Message);
@@ -66,8 +64,6 @@ namespace TheHouse.Controllers.Compras
             try
             {
                 await _mercadoService.AddMercado(data);
-                
-
                 return Ok();
             }
             catch (Exception e)
