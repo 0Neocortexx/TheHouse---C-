@@ -22,7 +22,7 @@ namespace Model.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Model.Entities.Compras.ListaDeCompra", b =>
+            modelBuilder.Entity("Model.Entities.CompraEntities.Mercado", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -30,23 +30,112 @@ namespace Model.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<bool>("PossuiNoEstoque")
-                        .HasColumnType("boolean");
+                    b.Property<string>("Bairro")
+                        .HasColumnType("text");
 
-                    b.Property<decimal>("PrecoUnitario")
-                        .HasColumnType("numeric");
+                    b.Property<string>("Cep")
+                        .HasColumnType("text");
 
-                    b.Property<string>("Produto")
+                    b.Property<string>("Cidade")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Nome")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
+                        .HasColumnType("text");
 
-                    b.Property<int>("Quantidade")
+                    b.Property<int?>("Numero")
                         .HasColumnType("integer");
+
+                    b.Property<string>("Rua")
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.ToTable("ListaDeCompras", (string)null);
+                    b.ToTable("Mercado");
+                });
+
+            modelBuilder.Entity("Model.Entities.CompraEntity.Compra", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("DataCompra")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("LinkNota")
+                        .HasColumnType("text");
+
+                    b.Property<int>("ListaCompraId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("MercadoId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("integer");
+
+                    b.Property<decimal>("ValorPago")
+                        .HasColumnType("numeric");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ListaCompraId");
+
+                    b.HasIndex("MercadoId");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("Compra");
+                });
+
+            modelBuilder.Entity("Model.Entities.CompraEntity.ItemListaCompra", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ListaCompraId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int?>("Quantidade")
+                        .HasColumnType("integer");
+
+                    b.Property<decimal?>("ValorMedioUnitario")
+                        .HasColumnType("numeric");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ListaCompraId");
+
+                    b.ToTable("ItemListaCompras");
+                });
+
+            modelBuilder.Entity("Model.Entities.CompraEntity.ListaCompra", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Descricao")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ListaCompra");
                 });
 
             modelBuilder.Entity("Model.Entities.Financas.FinancaDespesa", b =>
@@ -156,20 +245,18 @@ namespace Model.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasMaxLength(256)
-                        .HasColumnType("character varying(256)");
-
-                    b.Property<string>("Estado")
                         .HasColumnType("text");
 
-                    b.Property<string>("Genero")
-                        .HasColumnType("text");
+                    b.Property<int?>("Genero")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Nome")
-                        .HasMaxLength(128)
-                        .HasColumnType("character varying(128)");
+                        .HasColumnType("text");
 
-                    b.Property<string>("Pais")
+                    b.Property<int?>("Numero")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Rua")
                         .HasColumnType("text");
 
                     b.Property<string>("Senha")
@@ -178,7 +265,7 @@ namespace Model.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Usuario", (string)null);
+                    b.ToTable("Usuario");
                 });
 
             modelBuilder.Entity("Model.Entities.Visita.Visita", b =>
@@ -207,6 +294,44 @@ namespace Model.Migrations
                     b.ToTable("Visita", (string)null);
                 });
 
+            modelBuilder.Entity("Model.Entities.CompraEntity.Compra", b =>
+                {
+                    b.HasOne("Model.Entities.CompraEntity.ListaCompra", "ListaCompra")
+                        .WithMany()
+                        .HasForeignKey("ListaCompraId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Model.Entities.CompraEntities.Mercado", "Mercado")
+                        .WithMany()
+                        .HasForeignKey("MercadoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Model.Entities.GrupoUsuario.Usuario", "Usuario")
+                        .WithMany("Compras")
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ListaCompra");
+
+                    b.Navigation("Mercado");
+
+                    b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("Model.Entities.CompraEntity.ItemListaCompra", b =>
+                {
+                    b.HasOne("Model.Entities.CompraEntity.ListaCompra", "ListaCompra")
+                        .WithMany("ItensListaCompras")
+                        .HasForeignKey("ListaCompraId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ListaCompra");
+                });
+
             modelBuilder.Entity("Model.Entities.GrupoMeta.Meta", b =>
                 {
                     b.HasOne("Model.Entities.GrupoUsuario.Usuario", "Usuario")
@@ -218,8 +343,15 @@ namespace Model.Migrations
                     b.Navigation("Usuario");
                 });
 
+            modelBuilder.Entity("Model.Entities.CompraEntity.ListaCompra", b =>
+                {
+                    b.Navigation("ItensListaCompras");
+                });
+
             modelBuilder.Entity("Model.Entities.GrupoUsuario.Usuario", b =>
                 {
+                    b.Navigation("Compras");
+
                     b.Navigation("Metas");
                 });
 #pragma warning restore 612, 618
