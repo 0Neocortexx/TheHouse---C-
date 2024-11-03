@@ -2,7 +2,7 @@
 
 namespace Model.Enums.Usuario
 {
-    public enum GeneroEnum
+    public enum EGenero
     {
         [Description("Masculino")]
         Masculino = 0,

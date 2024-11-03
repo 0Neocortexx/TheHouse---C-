@@ -13,7 +13,7 @@ using Model.Repositories.Entretenimento;
 using Model.Repositories.Interfaces;
 using Model.Repositories.MetaRepository;
 using Model.Repositories.UsuarioRepository;
-using Model.Services.CompraService;
+using Model.Services.Compras;
 using Model.Services.Interfaces;
 using Model.Services.MetaService;
 using Model.Services.UsuarioService;
@@ -33,14 +33,20 @@ namespace InfraTheHouse.Extensions
         public static void AddRepositories(this IServiceCollection services)
         {
             services.AddTransient<ICompraRepository, CompraRepository>();
+            services.AddTransient<IItemListaCompraRepository, ItemListaCompraRepository>();
+            services.AddTransient<IListaCompraRepository, ListaCompraRepository>();
+            services.AddTransient<IMercadoRepository, MercadoRepository>();
             services.AddTransient<IVisitaRepository, VisitasRepository>();
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
             services.AddTransient<IMetaRepository, MetaRepository>();
         }
         public static void AddServices(this IServiceCollection services)
         {
-            services.AddScoped<IMetaService, MetaService>();
             services.AddScoped<ICompraService, CompraService>();
+            services.AddScoped<IListaCompraService, ListaCompraService>();
+            services.AddScoped<IItemListaCompraService, ItemListaCompraService>();
+            services.AddScoped<IMercadoService, MercadoService>();
+            services.AddScoped<IMetaService, MetaService>();
             services.AddScoped<IVisitaService, VisitaService>();
             services.AddScoped<IUsuarioService, UsuarioService>();
         }

@@ -8,19 +8,19 @@ namespace Model.DTOs.UsuarioDto
         public string? Email { get; set; }
         public string? Nome { get; set; }
         public string? Senha { get; set; }
-        public GeneroEnum? Genero { get; set; }
+        public EGenero? Genero { get; set; }
+        public string? Rua { get; set; }
+        public int? Numero { get; set; }
         public string? Cep { get; set; }
         public string? Bairro { get; set; }
         public string? Cidade { get; set; }
-        public string? Estado { get; set; }
-        public string? Pais { get; set; }
     }
 
     public class UsuarioCadastroDto 
     {
-        public string Nome { get; set; }
-        public string Email { get; set; }
-        public string Senha { get; set; }
+        public string? Nome { get; set; }
+        public string? Email { get; set; }
+        public string? Senha { get; set; }
     }
 
 
@@ -32,7 +32,7 @@ namespace Model.DTOs.UsuarioDto
 
     public class ResponseUsuarioLogin
     {
-        public string Email { set; get; }
-        public string Token { set; get; }
+        public string? Email { set; get; }
+        public string? Token { set; get; }
     }
 }
