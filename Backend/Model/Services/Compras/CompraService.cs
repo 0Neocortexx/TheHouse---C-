@@ -10,14 +10,11 @@ namespace Model.Services.Compras
     public class CompraService : ICompraService
     {
         private readonly ICompraRepository _repository;
-        private readonly IListaCompraRepository _listaRepository;
         public readonly IMapper _mapper;
-
-        public CompraService(ICompraRepository compraRepository, IListaCompraRepository listarepository, IMapper mapper)
+        public CompraService(ICompraRepository compraRepository, IMapper mapper)
         {
             _repository = compraRepository;
             _mapper = mapper;
-            _listaRepository = listarepository;
         }
 
         public async Task<List<GetCompraDto>?> GetAllCompras()

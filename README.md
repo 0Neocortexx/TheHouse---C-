@@ -19,3 +19,5 @@ O The House é uma solução completa para quem busca praticidade e organizaçã
     - Segurança de acesso: JsonWebToken
 - Banco de dados: PostgreSQL
 
+### Modelo de banco de dados das entidades de compras
+![Tabelas de compra](GitMedia/TabelasCompra.png)

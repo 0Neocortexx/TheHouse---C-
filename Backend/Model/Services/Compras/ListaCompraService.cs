@@ -10,7 +10,6 @@ namespace Model.Services.Compras
     {
         public readonly IListaCompraRepository _repository;
         public readonly IMapper _mapper;
-
         public ListaCompraService(IListaCompraRepository repository, IMapper mapper)
         {
             _repository = repository;
@@ -29,7 +28,6 @@ namespace Model.Services.Compras
                 return _mapper.Map<List<GetListaCompraDto>>(compras);
 
             }
-
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
@@ -69,6 +67,5 @@ namespace Model.Services.Compras
                 throw;
             }
         }
-
     }
 }

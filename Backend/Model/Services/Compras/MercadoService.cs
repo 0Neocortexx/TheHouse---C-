@@ -10,7 +10,6 @@ namespace Model.Services.Compras
     {
         public readonly IMercadoRepository _repository;
         public readonly IMapper _mapper;
-
         public MercadoService(IMercadoRepository repository, IMapper mapper)
         {
             _repository = repository;
@@ -27,15 +26,14 @@ namespace Model.Services.Compras
                     return null;
 
                 return _mapper.Map<List<GetMercadoDto>>(compras);
-
             }
-
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 throw;
             }
         }
+
         public async Task<GetMercadoDto?> GetMercadoById(int id)
         {
             try
@@ -53,6 +51,7 @@ namespace Model.Services.Compras
                 throw;
             }
         }
+
         public async Task AddMercado(CreateMercadoDto mercado)
         {
             try

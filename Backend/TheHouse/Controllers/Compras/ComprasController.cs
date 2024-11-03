@@ -6,7 +6,7 @@ using Model.Services.Interfaces;
 
 namespace TheHouse.Controllers.Compras
 {
-    [Route("api")]
+    [Route("api/compra")]
     [ApiController]
     public class ComprasController : Controller
     {
@@ -21,7 +21,7 @@ namespace TheHouse.Controllers.Compras
         }
 
         [Authorize]
-        [HttpGet("compra")]
+        [HttpGet]
         public async Task<ActionResult<List<GetCompraDto>>> GetCompras()
         {
             try
@@ -40,7 +40,7 @@ namespace TheHouse.Controllers.Compras
         }
 
         [Authorize]
-        [HttpGet("compra/{id}")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<GetCompraDto>> GetCompra(int id)
         {
             try
@@ -52,7 +52,6 @@ namespace TheHouse.Controllers.Compras
 
                 return Ok(compra);
             }
-
             catch (Exception ex)
             {
                 return StatusCode(500, ex.Message);
@@ -60,7 +59,7 @@ namespace TheHouse.Controllers.Compras
         }
 
         [Authorize]
-        [HttpPost("compra/novo")]
+        [HttpPost("novo")]
         public async Task<ActionResult> CreateCompra([FromBody] CreateCompraDto data)
         {
             try
@@ -74,6 +73,5 @@ namespace TheHouse.Controllers.Compras
                 return StatusCode(500, "Erro interno do servidor! \n" + "Erro: " + e);
             }
         }
-
     }
 }
