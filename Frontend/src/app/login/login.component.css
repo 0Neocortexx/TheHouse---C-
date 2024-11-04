@@ -1,0 +1,96 @@
+h1 {
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+.section1 {
+    width: 55vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login {
+    width: 400px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logincontent {
+    width: 90%;
+    height: 90%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px 10px 20px 5px;
+    background: transparent;
+    border-radius: 20px;
+}
+
+.submit {
+    width: 100px;
+    margin: 20px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.inputtext{
+    padding: 0;
+    width: 230px;
+    height: 30px;
+    border: none;
+    background: transparent;
+    color: black;
+    border-bottom: 1px solid black;
+    outline: none; /* Remove a borda ao clicar */
+}
+
+.inputlabel {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    font-size: 13px;
+}
+
+
+.inputtext::placeholder {
+    color: black;
+}
+
+a {
+    color: black;
+    margin-top: 15px;
+}
+
+
+.section2 {
+    background-image: url(/static/img/background.png);
+    background-size: cover;
+    width: 45vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section2::before {
+    content: ''; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 45svw; 
+    height: 100%; 
+    background: white; 
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.section2 img {
+    width: 350px;
+    height: 300px;
+    z-index: 1;
+}

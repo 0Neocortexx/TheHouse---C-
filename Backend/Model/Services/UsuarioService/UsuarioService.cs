@@ -55,7 +55,7 @@ namespace Model.Services.UsuarioService
 
         public bool TemCampoVazioCadastro(UsuarioCadastroDto usuario)
         {
-            if (usuario.Email == null || usuario.Senha == null || usuario.Nome == null)
+            if (usuario.Email == "" || usuario.Senha == "" || usuario.Nome == "")
             {
                 return true;
             }
