@@ -1,0 +1,34 @@
+<section class="section1">
+    <div class="login">
+        <div class="logincontent">
+            <h1>Realize seu login</h1>
+            
+            <div class="inputlabel">
+                <label for="email">Email</label>
+                
+                <input 
+                    [(ngModel)]="formEmail"
+                    class="inputtext form-control" 
+                    type="email" 
+                    id="email" 
+                    name="email"
+                />
+            </div>
+            
+            <div class="inputlabel">
+                <label for="senha">Password</label>
+                <input 
+                    [(ngModel)]="formSenha"
+                    class="inputtext" 
+                    type="password" 
+                    name="senha" 
+                    id="senha"
+                />
+            </div>
+
+            <a href="#esqueceusenha">Esqueceu a senha?</a>
+            <input (click)="clicked()" class="submit" type="submit" value="Entrar">
+            <a href="cadastro.html">Não possui cadastro?</a>
+        </div>
+    </div>
+</section>

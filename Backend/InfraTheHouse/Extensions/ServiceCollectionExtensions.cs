@@ -62,12 +62,13 @@ namespace InfraTheHouse.Extensions
         {
             services.AddCors(options =>
             {
-                options.AddDefaultPolicy(
-                    policy =>
-                    {
-                        policy.WithOrigins("*");
-                    });
+                options.AddPolicy("AllowAllOrigins",
+                    builder => builder.AllowAnyOrigin()
+                                      .AllowAnyHeader()
+                                      .AllowAnyMethod());
             });
+
+            services.AddControllers();
         }
 
         public static void AddJwtAuthentication(this IServiceCollection services, IConfiguration configuration)

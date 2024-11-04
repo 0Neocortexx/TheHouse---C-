@@ -1,10 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Model.DTOs.UsuarioDto;
-using Model.Entities.GrupoUsuario;
-using Security.AcessToken;
 using Model.Services.Interfaces;
-using Security.Criptopass;
 using Util.ManipulationStrings;
 
 namespace TheHouse.Controllers
@@ -57,12 +54,12 @@ namespace TheHouse.Controllers
         {
             try
             {
-                // Verificar se a senha ou o email estão vazios (Irá para outra DLL)
-                if (_service.TemCampoVazioCadastro(usuarioCadastro) == true)
-                    return StatusCode(500, "Preencha todos os campos!");
-
                 // Formata o email recebido
                 usuarioCadastro.Email = LoginStrings.FormatarEmail(usuarioCadastro.Email);
+
+                // Verificar se a senha ou o email estão vazios
+                if (_service.TemCampoVazioCadastro(usuarioCadastro) == true)
+                    return StatusCode(500, "Preencha todos os campos!");
 
                 // Verifica se o email já existe na base de dados
                 if (_service.IsEmailJaCadastrado(usuarioCadastro.Email) == true)
