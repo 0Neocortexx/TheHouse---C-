@@ -12,7 +12,7 @@ Outro recurso essencial é o controle de lista de compras, permitindo que o usu�
 O The House é uma solução completa para quem busca praticidade e organização no dia a dia doméstico.
 
 ### Tecnologias utilizadas
-- Frontend: Inicialmente seria utilizado a tecnologia Vue.js porém foi alterado para Angular.js
+- Frontend: Inicialmente seria utilizado a tecnologia Vue.js porém foi alterado para Angular
 - Backend:
     - Linguagem: C#
     - ORM: EntityFramework
