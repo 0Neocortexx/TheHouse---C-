@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { LoginComponent } from "./login/login.component";
 import { FormsModule } from '@angular/forms';
-import { CadastroComponent } from "./cadastro/cadastro.component";
+import { CadastroComponent } from "./components/cadastro/cadastro.component";
+import { LoaderComponent } from './components/loader/loader.component';
+import { LoginComponent } from "./components/login/login.component";
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ RouterOutlet, LoginComponent, CadastroComponent, FormsModule],
+  imports: [RouterOutlet, CadastroComponent, LoginComponent, FormsModule, LoaderComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Frontend';
 }

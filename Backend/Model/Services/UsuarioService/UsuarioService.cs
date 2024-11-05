@@ -21,44 +21,37 @@ namespace Model.Services.UsuarioService
 
         public async Task<Usuario?> GetUsuarioById(int id)
         {
-            return await _repository.GetUsuarioById(id);
+            Usuario? user = await _repository.GetUsuarioById(id);
+
+            if (user != null)
+                return null;
+
+            return user;
         }
 
         public UsuarioLoginDto? GetUsuarioByEmail(string email)
         {
-            try
-            {
-                Usuario? usuarioLogin = _repository.GetUsuarioByEmail(email);
+            Usuario? usuarioLogin = _repository.GetUsuarioByEmail(email);
 
-                if (usuarioLogin == null)
-                {
-                   return null;
-                }
-
-                return _mapper.Map<UsuarioLoginDto>(usuarioLogin);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
+            if (usuarioLogin == null)
                 return null;
-            }
+
+            return _mapper.Map<UsuarioLoginDto>(usuarioLogin);
         }
 
         public bool TemCampoVazioLogin(UsuarioLoginDto usuario)
         {
             if (usuario.Email == null || usuario.Senha == null)
-            {
                 return true;
-            }
+
             return false;
         }
 
         public bool TemCampoVazioCadastro(UsuarioCadastroDto usuario)
         {
             if (usuario.Email == "" || usuario.Senha == "" || usuario.Nome == "")
-            {
                 return true;
-            }
+
             return false;
         }
 
@@ -99,20 +92,13 @@ namespace Model.Services.UsuarioService
 
         public async Task AddUsuario(UsuarioCadastroDto usuario)
         {
-            try
-            {
-                usuario.Senha = Criptografia.GerarHashSHA256(usuario.Senha);
+            usuario.Senha = Criptografia.GerarHashSHA256(usuario.Senha);
 
-                Usuario newUsuario = _mapper.Map<Usuario>(usuario);
+            Usuario newUsuario = _mapper.Map<Usuario>(usuario);
 
-                await _repository.AddUsuario(newUsuario);
+            await _repository.AddUsuario(newUsuario);
 
-                await _repository.SaveChangesAsync();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
+            await _repository.SaveChangesAsync();
         }
     }
 }

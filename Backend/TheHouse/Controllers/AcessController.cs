@@ -39,7 +39,7 @@ namespace TheHouse.Controllers
                 string token = _service.GerarTokenUsuario(usuarioLoginDto.Email);
 
                 // Retorna a response com o email e o token de usuário
-                ResponseUsuarioLogin response = new ResponseUsuarioLogin() { Email = usuarioLoginDto.Email, Token = token };
+                ResponseUsuarioLoginDto response = new ResponseUsuarioLoginDto() { Email = usuarioLoginDto.Email, Token = token };
 
                 return Ok(response);
             }
@@ -72,7 +72,7 @@ namespace TheHouse.Controllers
                 string token = _service.GerarTokenUsuario(usuarioCadastro.Email);
 
                 // Monta uma nova entidade de resposta
-                ResponseUsuarioLogin novoUsuario = new ResponseUsuarioLogin() { Email = usuarioCadastro.Email, Token = token};
+                ResponseUsuarioLoginDto novoUsuario = new ResponseUsuarioLoginDto() { Email = usuarioCadastro.Email, Token = token};
 
                 return Ok(novoUsuario);
             }

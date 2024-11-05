@@ -15,24 +15,4 @@ namespace Model.DTOs.UsuarioDto
         public string? Bairro { get; set; }
         public string? Cidade { get; set; }
     }
-
-    public class UsuarioCadastroDto 
-    {
-        public string? Nome { get; set; }
-        public string? Email { get; set; }
-        public string? Senha { get; set; }
-    }
-
-
-    public class UsuarioLoginDto
-    {
-        public string Email { get; set; }
-        public string Senha { get; set; }
-    }
-
-    public class ResponseUsuarioLogin
-    {
-        public string? Email { set; get; }
-        public string? Token { set; get; }
-    }
 }
