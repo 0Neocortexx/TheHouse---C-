@@ -5,7 +5,6 @@ using Model.Repositories.Interfaces;
 using Model.Services.Interfaces;
 using Security.AcessToken;
 using Security.Criptopass;
-using Util.ManipulationStrings;
 
 namespace Model.Services.UsuarioService
 {
@@ -19,24 +18,24 @@ namespace Model.Services.UsuarioService
             _mapper = mapper;
         }
 
-        public async Task<Usuario?> GetUsuarioById(int id)
+        public async Task<UsuarioDto?> GetUsuarioById(int id)
         {
             Usuario? user = await _repository.GetUsuarioById(id);
 
             if (user != null)
                 return null;
 
-            return user;
+            return _mapper.Map<UsuarioDto>(user);
         }
 
-        public UsuarioLoginDto? GetUsuarioByEmail(string email)
+        public UsuarioDto? GetUsuarioByEmail(string email)
         {
             Usuario? usuarioLogin = _repository.GetUsuarioByEmail(email);
 
             if (usuarioLogin == null)
                 return null;
 
-            return _mapper.Map<UsuarioLoginDto>(usuarioLogin);
+            return _mapper.Map<UsuarioDto>(usuarioLogin);
         }
 
         public bool TemCampoVazioLogin(UsuarioLoginDto usuario)
@@ -61,7 +60,7 @@ namespace Model.Services.UsuarioService
             usuario.Senha = Criptografia.GerarHashSHA256(usuario.Senha);
 
             // Verificar se existe usuario com o email informado
-            UsuarioLoginDto? usuarioLoginBanco = GetUsuarioByEmail(usuario.Email);
+            UsuarioDto? usuarioLoginBanco = GetUsuarioByEmail(usuario.Email);
  
             // Verifica se o usuario procurado foi nulo ou se a senha informada é diferente da senha do banco
             if (usuarioLoginBanco == null || !usuario.Senha.Equals(usuarioLoginBanco.Senha))
@@ -73,7 +72,7 @@ namespace Model.Services.UsuarioService
 
         public bool IsEmailJaCadastrado(string email)
         {
-            UsuarioLoginDto? usuarioBanco = GetUsuarioByEmail(email);
+            UsuarioDto? usuarioBanco = GetUsuarioByEmail(email);
 
             if (usuarioBanco != null)
                 return true;

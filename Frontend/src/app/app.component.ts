@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-import { CadastroComponent } from "./components/cadastro/cadastro.component";
-import { LoaderComponent } from './components/loader/loader.component';
-import { LoginComponent } from "./components/login/login.component";
-
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { IndexComponent } from './components/index/index.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CadastroComponent, LoginComponent, FormsModule, LoaderComponent],
+  imports: [RouterOutlet, SweetAlert2Module],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrl: './app.component.css'
+  // template: `
+  // <h1> hello world </h1>
+  // `
 })
 export class AppComponent {
+  title = 'Frontend';
 }

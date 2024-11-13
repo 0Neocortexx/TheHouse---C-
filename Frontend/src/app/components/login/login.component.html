@@ -7,7 +7,7 @@
                 <label for="email">Email</label>
                 
                 <input 
-                    [(ngModel)]="formEmail"
+                    [(ngModel)]="email"
                     class="inputtext form-control" 
                     type="email" 
                     id="email" 
@@ -18,7 +18,7 @@
             <div class="inputlabel">
                 <label for="senha">Password</label>
                 <input 
-                    [(ngModel)]="formSenha"
+                    [(ngModel)]="senha"
                     class="inputtext" 
                     type="password" 
                     name="senha" 
@@ -27,8 +27,8 @@
             </div>
 
             <a href="#esqueceusenha">Esqueceu a senha?</a>
-            <input (click)="clicked()" class="submit" type="submit" value="Entrar">
-            <a href="cadastro.html">Não possui cadastro?</a>
+            <input (click)="login()" class="submit" type="submit" value="Entrar">
+            <a routerLink="/cadastro">Não possui cadastro?</a>
         </div>
     </div>
 </section>
