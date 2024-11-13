@@ -13,6 +13,8 @@ namespace Model.Profiles.UsuarioProfile
             CreateMap<UsuarioLoginDto, Usuario>().ReverseMap();
 
             CreateMap<UsuarioCadastroDto, Usuario>().ReverseMap();
+
+            CreateMap<UsuarioLoginDto, ResponseUsuarioLoginDto>();
         }
     }
 }

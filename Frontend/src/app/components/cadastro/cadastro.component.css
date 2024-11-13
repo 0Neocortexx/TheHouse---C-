@@ -10,7 +10,7 @@ h1 {
     align-items: center;
     justify-content: center;
 }
-.login {
+.cadastro {
     width: 400px;
     height: 450px;
     display: flex;
@@ -19,7 +19,7 @@ h1 {
     justify-content: center;
 }
 
-.logincontent {
+.cadastrocontent {
     width: 90%;
     height: 90%;
     justify-content: center;
@@ -56,7 +56,6 @@ h1 {
     margin: 10px;
     font-size: 13px;
 }
-
 
 .inputtext::placeholder {
     color: black;

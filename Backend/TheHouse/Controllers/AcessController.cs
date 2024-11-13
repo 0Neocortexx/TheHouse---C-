@@ -35,11 +35,13 @@ namespace TheHouse.Controllers
                 if(_service.IsLoginVerificado(usuarioLoginDto) == false)
                     return Unauthorized();
 
+                UsuarioDto? userData = _service.GetUsuarioByEmail(usuarioLoginDto.Email);
+
                 // Gera um novo token para o usuario
                 string token = _service.GerarTokenUsuario(usuarioLoginDto.Email);
 
                 // Retorna a response com o email e o token de usuário
-                ResponseUsuarioLoginDto response = new ResponseUsuarioLoginDto() { Email = usuarioLoginDto.Email, Token = token };
+                ResponseUsuarioLoginDto response = new ResponseUsuarioLoginDto() { Nome = userData.Nome, Email = userData.Email, Token = token };
 
                 return Ok(response);
             }

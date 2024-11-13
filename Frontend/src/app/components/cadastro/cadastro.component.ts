@@ -1,36 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { TheHouseService } from '../../services/the-house.service';
 import { FormsModule } from '@angular/forms';
-import { ThehouseService } from '../../services/thehouse.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './cadastro.component.html',
   styleUrl: './cadastro.component.css'
 })
 export class CadastroComponent {
 
-  formNome: string = '';
-  formEmail: string = '';
-  formSenha: string = '';
+  service = inject(TheHouseService);
 
-  constructor(private theHouseService: ThehouseService){}
-  
-  clicked(): void {
-    this.theHouseService.realizaLogin(this.formEmail, this.formSenha)
-      .subscribe({
-        next: (response) => {
-          window.alert('Cadastro realizado com sucesso!');
-          console.log('Resposta do servidor:', response);
-        },
-        error: (error) => {
-          window.alert('Erro ao realizar cadastro. Verifique suas credenciais.');
-          console.error('Erro:', error);
-        },
-        complete: () => {
-          console.log('Requisição de login completa.');
-        }
-      });
+  nome: string = '';
+  email: string = '';
+  senha: string = '';
+
+  cadastro() {
+    return this.service.cadastro(this.nome, this.email, this.senha);
   }
 }

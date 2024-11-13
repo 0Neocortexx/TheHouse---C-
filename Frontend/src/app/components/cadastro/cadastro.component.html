@@ -1,44 +1,47 @@
 <section class="section1">
-        <div class="login">
-            <div class="logincontent">
-                <h1>Realize seu cadastro</h1>
-                
-                <div class="inputlabel">
-                    <label for="username">Username</label>
-                    <input 
-                        [(ngModel)]="formNome"
-                        class="inputtext" 
-                        type="text" 
-                        name="username" 
-                        id="username" 
-                    />
-                </div>
-
-                <div class="inputlabel">
-                    <label for="email">Email</label>
-                    <input 
-                        [(ngModel)]="formEmail"
-                        class="inputtext" 
-                        type="email" 
-                        name="email" 
-                        id="email" 
-                    />
-                </div>
-                
-                <div class="inputlabel">
-                    <label for="senha">Password</label>
-                    <input 
-                        [(ngModel)]="formSenha"
-                        class="inputtext" 
-                        type="password" 
-                        name="senha" 
-                        id="senha" 
-                        ng-model="senha"
-                    />
-                </div>
-
-                <input (click)="clicked()" class="submit" type="submit" value="Cadastrar">
-                <a href="login.html">Já possui cadastro?</a>
+    
+    <div class="cadastro">
+        <div class="cadastrocontent">
+            <h1>Realize seu cadastro</h1>
+            
+            <div class="inputlabel">
+                <label for="username">Username</label>
+                <input 
+                    class="inputtext" 
+                    type="text" 
+                    name="username" 
+                    id="username" 
+                    [(ngModel)]="nome"
+                    required
+                />
             </div>
+
+            <div class="inputlabel">
+                <label for="email">Email</label>
+                <input 
+                    class="inputtext" 
+                    type="email" 
+                    name="email" 
+                    id="email" 
+                    [(ngModel)]="email"
+                    required
+                />
+            </div>
+            
+            <div class="inputlabel">
+                <label for="senha">Password</label>
+                <input 
+                    class="inputtext" 
+                    type="password" 
+                    name="senha" 
+                    id="senha" 
+                    ng-model="senha"
+                    [(ngModel)]="senha"
+                    required
+                />
+            </div>
+            <input class="submit" type="submit" value="Cadastrar" (click)="cadastro()">
+            <a routerLink="/login">Já possui cadastro?</a>
         </div>
+    </div>
 </section>

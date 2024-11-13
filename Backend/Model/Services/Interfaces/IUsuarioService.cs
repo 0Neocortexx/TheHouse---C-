@@ -5,9 +5,9 @@ namespace Model.Services.Interfaces
 {
     public interface IUsuarioService
     {
-        public Task<Usuario?> GetUsuarioById(int id);
+        public Task<UsuarioDto?> GetUsuarioById(int id);
         public Task AddUsuario(UsuarioCadastroDto usuario);
-        public UsuarioLoginDto? GetUsuarioByEmail(string email);
+        public UsuarioDto? GetUsuarioByEmail(string email);
         public bool TemCampoVazioLogin(UsuarioLoginDto usuario);
         public bool TemCampoVazioCadastro(UsuarioCadastroDto usuario);
         public bool IsLoginVerificado(UsuarioLoginDto usuario);
