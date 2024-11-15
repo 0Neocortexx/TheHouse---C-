@@ -41,7 +41,7 @@ namespace TheHouse.Controllers
                 string token = _service.GerarTokenUsuario(usuarioLoginDto.Email);
 
                 // Retorna a response com o email e o token de usuário
-                ResponseUsuarioLoginDto response = new ResponseUsuarioLoginDto() { Nome = userData.Nome, Email = userData.Email, Token = token };
+                ResponseUsuarioLoginDto response = new ResponseUsuarioLoginDto() { Id = userData.Id, Nome = userData.Nome, Email = userData.Email, Token = token };
 
                 return Ok(response);
             }
@@ -56,12 +56,12 @@ namespace TheHouse.Controllers
         {
             try
             {
-                // Formata o email recebido
-                usuarioCadastro.Email = LoginStrings.FormatarEmail(usuarioCadastro.Email);
-
                 // Verificar se a senha ou o email estão vazios
                 if (_service.TemCampoVazioCadastro(usuarioCadastro) == true)
                     return StatusCode(500, "Preencha todos os campos!");
+
+                // Formata o email recebido
+                usuarioCadastro.Email = LoginStrings.FormatarEmail(usuarioCadastro.Email);
 
                 // Verifica se o email já existe na base de dados
                 if (_service.IsEmailJaCadastrado(usuarioCadastro.Email) == true)

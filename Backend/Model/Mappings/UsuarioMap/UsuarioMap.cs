@@ -8,7 +8,10 @@ namespace Model.Mappings.UsuarioMap
     {
         public void Configure(EntityTypeBuilder<Usuario> builder)
         {
-            builder.HasKey(e => e.Id);
+            builder.Property(u => u.Id)
+                .HasDefaultValueSql("gen_random_uuid()");
+            builder.Property(u => u.Email)
+                .HasMaxLength(128);   
         }
     } 
 }

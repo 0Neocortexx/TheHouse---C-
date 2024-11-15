@@ -1,16 +1,10 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthServiceService } from './auth-service.service';
-import { Observable } from 'rxjs';
-
-const authservice = new AuthServiceService();
-
-const httpOptions = {
-  headers : new HttpHeaders({
-    'Content-Type': 'application/json',
-    'Authorization': `bearer ${authservice.getToken()}`
-  })
-}
+import { Observable, pipe } from 'rxjs';
+import { throwError } from 'rxjs';
+import { catchError } from 'rxjs';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -19,11 +13,52 @@ export class ComprasService {
 
   private apiUrl = 'http://localhost:5043/api';
 
-  http = inject(HttpClient);
+  authService = inject(AuthServiceService);
 
-  getAllListaCompra(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl+'/listacompra', httpOptions);
+  httpOptions = {
+    headers : new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `bearer ${this.authService.getToken()}`
+    })
   }
 
-  
+  http = inject(HttpClient);
+
+  getAllListaCompra(userIdentify:string): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl+`/listacompra/${userIdentify}`, this.httpOptions);
+  }
+
+  deleteListaCompra(idLista: number) {
+    var data = {idLista};
+    return this.http.delete(this.apiUrl+`/listacompra/`+ idLista, this.httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      )
+      .subscribe({
+        next: (response: any) => {
+          Swal.fire({ 
+            position: "center", 
+            icon: "success", 
+            title: "Item Removido!", 
+            showConfirmButton: false, 
+            timer: 1500, })
+            .then(() => { 
+              location.reload(); 
+            });
+        },
+        error: (error) => {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Erro ao excluir item!"
+          });
+        }
+    })
+  }
+
+
+  private handleError(error: any) {
+    console.log(error);
+    return throwError(() => new Error('Erro ao realizar login. Verifique as credenciais e tente novamente.'));
+  }
 }

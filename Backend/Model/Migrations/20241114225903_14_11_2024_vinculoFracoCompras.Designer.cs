@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Model.Context;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Model.Migrations
 {
     [DbContext(typeof(TheHouseContext))]
-    partial class TheHouseContextModelSnapshot : ModelSnapshot
+    [Migration("20241114225903_14_11_2024_vinculoFracoCompras")]
+    partial class _14_11_2024_vinculoFracoCompras
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -68,10 +71,13 @@ namespace Model.Migrations
                     b.Property<string>("LinkNota")
                         .HasColumnType("text");
 
-                    b.Property<int?>("ListaCompraId")
+                    b.Property<int>("ListaCompraId")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("MercadoId")
+                    b.Property<int>("MercadoId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Status")
                         .HasColumnType("integer");
 
                     b.Property<Guid>("UsuarioId")
@@ -127,18 +133,10 @@ namespace Model.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime?>("DataCriacao")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("Nome")
+                    b.Property<string>("Descricao")
                         .HasColumnType("text");
 
-                    b.Property<Guid>("UsuarioId")
-                        .HasColumnType("uuid");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UsuarioId");
 
                     b.ToTable("ListaCompra");
                 });
@@ -307,12 +305,14 @@ namespace Model.Migrations
                     b.HasOne("Model.Entities.CompraEntity.ListaCompra", "ListaCompra")
                         .WithMany()
                         .HasForeignKey("ListaCompraId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .IsRequired();
 
                     b.HasOne("Model.Entities.CompraEntities.Mercado", "Mercado")
                         .WithMany()
                         .HasForeignKey("MercadoId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .IsRequired();
 
                     b.HasOne("Model.Entities.GrupoUsuario.Usuario", "Usuario")
                         .WithMany("Compras")
@@ -338,17 +338,6 @@ namespace Model.Migrations
                     b.Navigation("ListaCompra");
                 });
 
-            modelBuilder.Entity("Model.Entities.CompraEntity.ListaCompra", b =>
-                {
-                    b.HasOne("Model.Entities.GrupoUsuario.Usuario", "Usuario")
-                        .WithMany("ListaCompra")
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Usuario");
-                });
-
             modelBuilder.Entity("Model.Entities.GrupoMeta.Meta", b =>
                 {
                     b.HasOne("Model.Entities.GrupoUsuario.Usuario", "Usuario")
@@ -368,8 +357,6 @@ namespace Model.Migrations
             modelBuilder.Entity("Model.Entities.GrupoUsuario.Usuario", b =>
                 {
                     b.Navigation("Compras");
-
-                    b.Navigation("ListaCompra");
 
                     b.Navigation("Metas");
                 });

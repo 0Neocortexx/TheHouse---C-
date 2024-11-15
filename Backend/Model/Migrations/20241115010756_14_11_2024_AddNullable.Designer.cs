@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Model.Migrations
 {
     [DbContext(typeof(TheHouseContext))]
-    [Migration("20241103002324_02_11_2024-Tabela_Compras")]
-    partial class _02_11_2024Tabela_Compras
+    [Migration("20241115010756_14_11_2024_AddNullable")]
+    partial class _14_11_2024_AddNullable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -71,17 +71,17 @@ namespace Model.Migrations
                     b.Property<string>("LinkNota")
                         .HasColumnType("text");
 
-                    b.Property<int>("ListaCompraId")
+                    b.Property<int?>("ListaCompraId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("MercadoId")
+                    b.Property<int?>("MercadoId")
                         .HasColumnType("integer");
 
                     b.Property<int>("Status")
                         .HasColumnType("integer");
 
-                    b.Property<int>("UsuarioId")
-                        .HasColumnType("integer");
+                    b.Property<Guid>("UsuarioId")
+                        .HasColumnType("uuid");
 
                     b.Property<decimal>("ValorPago")
                         .HasColumnType("numeric");
@@ -216,6 +216,9 @@ namespace Model.Migrations
                     b.Property<int>("UsuarioId")
                         .HasColumnType("integer");
 
+                    b.Property<Guid>("UsuarioId1")
+                        .HasColumnType("uuid");
+
                     b.Property<decimal>("ValorAdquirido")
                         .HasColumnType("numeric");
 
@@ -224,18 +227,17 @@ namespace Model.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UsuarioId");
+                    b.HasIndex("UsuarioId1");
 
                     b.ToTable("Metas", (string)null);
                 });
 
             modelBuilder.Entity("Model.Entities.GrupoUsuario.Usuario", b =>
                 {
-                    b.Property<int?>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int?>("Id"));
+                        .HasColumnType("uuid")
+                        .HasDefaultValueSql("gen_random_uuid()");
 
                     b.Property<string>("Bairro")
                         .HasColumnType("text");
@@ -248,7 +250,8 @@ namespace Model.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(128)
+                        .HasColumnType("character varying(128)");
 
                     b.Property<int?>("Genero")
                         .HasColumnType("integer");
@@ -302,14 +305,12 @@ namespace Model.Migrations
                     b.HasOne("Model.Entities.CompraEntity.ListaCompra", "ListaCompra")
                         .WithMany()
                         .HasForeignKey("ListaCompraId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("Model.Entities.CompraEntities.Mercado", "Mercado")
                         .WithMany()
                         .HasForeignKey("MercadoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("Model.Entities.GrupoUsuario.Usuario", "Usuario")
                         .WithMany("Compras")
@@ -339,7 +340,7 @@ namespace Model.Migrations
                 {
                     b.HasOne("Model.Entities.GrupoUsuario.Usuario", "Usuario")
                         .WithMany("Metas")
-                        .HasForeignKey("UsuarioId")
+                        .HasForeignKey("UsuarioId1")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

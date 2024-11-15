@@ -7,5 +7,6 @@ namespace Model.Services.Interfaces
         public Task<List<GetCompraDto>?> GetAllCompras();
         public Task<GetCompraDto?> GetCompraById(int id);
         public Task AddCompra(CreateCompraDto compras);
+        public Task<List<GetCompraDto>> GetAllComprasByUserId(Guid? userId);
     }
 }

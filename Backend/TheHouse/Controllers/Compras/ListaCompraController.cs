@@ -20,27 +20,26 @@ namespace TheHouse.Controllers.Compras
         }
 
         [Authorize]
-        [HttpGet]
-        public async Task<ActionResult<List<GetListaCompraDto>>> GetListasDeCompra()
+        [HttpGet("{userId}")]
+        public async Task<ActionResult<List<GetListaCompraDto>>> GetAllListasDeCompraByUserId(Guid userId)
         {
             try
             {
-                var compras = await _listaCompraService.GetAllListaCompra();
+                var listas = await _listaCompraService.GetListaComprasByUserId(userId);
 
-                if (compras == null)
-                    return StatusCode(200, null);
+                if(listas == null)
+                    return StatusCode(200, "Sem Listas Cadastradas!");
 
-                return Ok(compras);
+                return Ok(listas);
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                return StatusCode(500, ex.Message.ToString());
+                return StatusCode(500, "Erro interno do servidor! - " + ex.Message);
             }
         }
 
         [Authorize]
-        [HttpGet("{id}")]
-        [Authorize]
+        [HttpGet("{userId}/{id}")]
         public async Task<ActionResult<GetListaCompraDto>> GetListaDeCompra(int id)
         {
             try
@@ -70,6 +69,22 @@ namespace TheHouse.Controllers.Compras
             catch (Exception e)
             {
                 return StatusCode(500, "Erro interno do servidor! \n" + "Erro: " + e);
+            }
+        }
+
+        [Authorize]
+        [HttpDelete("{idLista}")]
+        public async Task<ActionResult> DeleteLista(int idLista)
+        {
+            try
+            {
+                await _listaCompraService.RemoveListaCompra(idLista);
+
+                return StatusCode(204, "Item Excluido com sucesso!");
+            } 
+            catch(Exception ex)
+            {
+                return StatusCode(500, ex.Message);
             }
         }
     }

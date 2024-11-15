@@ -45,6 +45,9 @@ export class TheHouseService {
           localStorage.setItem("email", response.email);
           localStorage.setItem("token", response.token);
           localStorage.setItem("nome", response.nome);
+          localStorage.setItem("userIdentify", response.id);
+
+          console.log(response);
             
           Swal.fire({
               position: "center",
@@ -69,8 +72,16 @@ export class TheHouseService {
     })
   }
 
+  validaEmail(email: string) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Cria o regex para validar o email
+    var test = emailRegex.test(email);
+    return !test ? false : true;
+  }
+
   cadastro(nome: string, email: string, senha: string) {
 
+    email.toLowerCase;
+    
     const data = { nome, email, senha };
 
     this.http.post(this.apiUrl+'/cadastro', data, httpOptions)
@@ -79,7 +90,14 @@ export class TheHouseService {
       )
       .subscribe({
         next: (response) => {
-          console.log('Cadastro realizado com sucesso!', response);
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Cadastro realizado com sucesso!",
+            showConfirmButton: false,
+            timer: 1500,
+        });
+
         },
         error: (error) => {
           console.error('Erro ao realizar cadastro:', error);
@@ -89,8 +107,7 @@ export class TheHouseService {
           this.router.navigate(['login']);
         }
       });
-  }
-  
+    }
 
   updatePost(data: any) {
     return this.http.put(this.apiUrl, data);

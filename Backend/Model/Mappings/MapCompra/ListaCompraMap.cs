@@ -9,6 +9,10 @@ namespace Model.Mappings.MapCompra
         public void Configure(EntityTypeBuilder<ListaCompra> builder)
         {
             builder.HasKey(e => e.Id);
+
+            builder.HasOne(u => u.Usuario)
+                .WithMany(u => u.ListaCompra)
+                .HasForeignKey(u => u.UsuarioId);
         }
     }
 }
