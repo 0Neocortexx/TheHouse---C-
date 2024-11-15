@@ -25,6 +25,8 @@ export class AuthServiceService {
     localStorage.removeItem('token'); 
     localStorage.removeItem('email'); 
     localStorage.removeItem('nome');
+    localStorage.removeItem('userIdentify');
+    
     Swal.fire({
       position: "center",
       icon: "success",

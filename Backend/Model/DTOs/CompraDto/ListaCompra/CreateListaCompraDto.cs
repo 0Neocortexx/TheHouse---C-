@@ -2,6 +2,8 @@
 {
     public class CreateListaCompraDto
     {
-        public string? Descricao { get; set; }
+        public string? Nome { get; set; }
+        public Guid UsuarioId { get; set; }
+        public DateTime? DataCriacao { get; set; }
     }
 }

@@ -13,7 +13,7 @@ namespace Model.Repositories.UsuarioRepository
             _context = context;
         }
 
-        public async Task<Usuario?> GetUsuarioById(int id)
+        public async Task<Usuario?> GetUsuarioById(Guid id)
         {
             return await _context.Usuario.FindAsync(id);
         }

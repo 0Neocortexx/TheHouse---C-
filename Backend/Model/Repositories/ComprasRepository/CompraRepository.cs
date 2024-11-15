@@ -40,6 +40,16 @@ namespace Model.Repositories.Compras
                 .ToListAsync(); // retorna em formato de lista
         }
 
+        public async Task<List<Compra>> GetAllComprasByUserId(Guid? userId)
+        {
+            return await _context.Compra
+                .Include(c => c.ListaCompra)
+                .ThenInclude(l => l.ItensListaCompras)
+                .Include(m => m.Mercado)
+                .Where(c => c.UsuarioId == userId)
+                .ToListAsync();
+        }
+
         public async Task SaveChangesAsync()
         {
             await _context.SaveChangesAsync();

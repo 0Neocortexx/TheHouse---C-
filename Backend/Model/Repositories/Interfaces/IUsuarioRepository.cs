@@ -4,7 +4,7 @@ namespace Model.Repositories.Interfaces
 {
     public interface IUsuarioRepository
     {
-        Task<Usuario?> GetUsuarioById(int id);
+        Task<Usuario?> GetUsuarioById(Guid id);
         Usuario? GetUsuarioByEmail(string email);
         Task AddUsuario(Usuario usuario);
         Task SaveChangesAsync();

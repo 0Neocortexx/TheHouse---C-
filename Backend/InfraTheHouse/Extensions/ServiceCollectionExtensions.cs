@@ -14,6 +14,7 @@ using Model.Repositories.Interfaces;
 using Model.Repositories.MetaRepository;
 using Model.Repositories.UsuarioRepository;
 using Model.Services.Compras;
+using Model.Services.ComprasService;
 using Model.Services.Interfaces;
 using Model.Services.MetaService;
 using Model.Services.UsuarioService;

@@ -27,4 +27,9 @@
     <ProjectReference Include="..\Util\Util.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Enums\Compra\" />
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

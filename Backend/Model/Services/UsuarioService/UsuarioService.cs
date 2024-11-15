@@ -18,7 +18,7 @@ namespace Model.Services.UsuarioService
             _mapper = mapper;
         }
 
-        public async Task<UsuarioDto?> GetUsuarioById(int id)
+        public async Task<UsuarioDto?> GetUsuarioById(Guid id)
         {
             Usuario? user = await _repository.GetUsuarioById(id);
 

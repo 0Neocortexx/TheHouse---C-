@@ -5,7 +5,7 @@ using Model.Entities.CompraEntity;
 using Model.Repositories.Interfaces;
 using Model.Services.Interfaces;
 
-namespace Model.Services.Compras
+namespace Model.Services.ComprasService
 {
     public class CompraService : ICompraService
     {
@@ -68,6 +68,13 @@ namespace Model.Services.Compras
                 Console.WriteLine(ex.Message);
                 throw;
             }
+        }
+
+        public async Task<List<GetCompraDto>> GetAllComprasByUserId(Guid? userId)
+        {
+            List<Compra> lista = await _repository.GetAllComprasByUserId(userId);
+
+            return _mapper.Map<List<GetCompraDto>>(lista);
         }
     }
 }

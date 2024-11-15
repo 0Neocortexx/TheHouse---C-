@@ -25,9 +25,12 @@ namespace Model.Profiles.Compras
             
             CreateMap<ListaCompra, GetListaCompraDto>()
                 .ForMember(dest => dest.ItensListaCompra, opt => opt.MapFrom(src => src.ItensListaCompras))
+                .ForMember(prop => prop.DataCriacao, opt => opt.MapFrom(src => src.DataCriacao.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")))
                 .ReverseMap();
 
-            CreateMap<CreateListaCompraDto, ListaCompra>().ReverseMap();
+            CreateMap<CreateListaCompraDto, ListaCompra>()
+                .ForMember(prop => prop.DataCriacao, opt => opt.MapFrom(src => src.DataCriacao.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")))
+                .ReverseMap();
 
             CreateMap<ItemListaCompra, GetItemListaCompraDto>().ReverseMap();
 

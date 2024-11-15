@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Model.Migrations
 {
     /// <inheritdoc />
-    public partial class _02_11_2024Tabela_Compras : Migration
+    public partial class nova_migracao : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -79,9 +79,8 @@ namespace Model.Migrations
                 name: "Usuario",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Email = table.Column<string>(type: "text", nullable: false),
+                    Id = table.Column<Guid>(type: "uuid", nullable: false, defaultValueSql: "gen_random_uuid()"),
+                    Email = table.Column<string>(type: "character varying(128)", maxLength: 128, nullable: false),
                     Nome = table.Column<string>(type: "text", nullable: true),
                     Senha = table.Column<string>(type: "text", nullable: false),
                     Genero = table.Column<int>(type: "integer", nullable: true),
@@ -144,7 +143,7 @@ namespace Model.Migrations
                     DataCompra = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     Status = table.Column<int>(type: "integer", nullable: false),
                     ListaCompraId = table.Column<int>(type: "integer", nullable: false),
-                    UsuarioId = table.Column<int>(type: "integer", nullable: false),
+                    UsuarioId = table.Column<Guid>(type: "uuid", nullable: false),
                     MercadoId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
@@ -181,14 +180,15 @@ namespace Model.Migrations
                     ValorAdquirido = table.Column<decimal>(type: "numeric", nullable: false),
                     ValorTotalMeta = table.Column<decimal>(type: "numeric", nullable: false),
                     MetaStatus = table.Column<string>(type: "text", nullable: false),
-                    UsuarioId = table.Column<int>(type: "integer", nullable: false)
+                    UsuarioId = table.Column<int>(type: "integer", nullable: false),
+                    UsuarioId1 = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Metas", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Metas_Usuario_UsuarioId",
-                        column: x => x.UsuarioId,
+                        name: "FK_Metas_Usuario_UsuarioId1",
+                        column: x => x.UsuarioId1,
                         principalTable: "Usuario",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -215,9 +215,9 @@ namespace Model.Migrations
                 column: "ListaCompraId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Metas_UsuarioId",
+                name: "IX_Metas_UsuarioId1",
                 table: "Metas",
-                column: "UsuarioId");
+                column: "UsuarioId1");
         }
 
         /// <inheritdoc />

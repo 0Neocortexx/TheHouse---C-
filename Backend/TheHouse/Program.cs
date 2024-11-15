@@ -23,9 +23,9 @@ if (app.Environment.IsDevelopment())
 }
 
 // app.UseHttpsRedirection();
+app.UseCors("AllowAllOrigins"); // Ativa o CORS
 app.UseAuthentication(); // Ativa a autenticaçã
 app.UseAuthorization(); // Ativa a autorização 
-app.UseCors("AllowAllOrigins"); // Ativa o CORS
 app.MapControllers();
 
 app.Run();

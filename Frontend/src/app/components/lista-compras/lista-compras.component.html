@@ -1,5 +1,29 @@
-<ul> 
-    <li *ngFor="let item of listaCompras">
-         {{ item.Descricao }} - {{ item.ValorTotalEspeculado }} 
-    </li> 
-</ul>
+
+<h3>Listas de compra:</h3>
+<table class="tabela">
+    <thead>
+        <tr>
+            <th>Descrição</th>
+            <th>Data de Criação</th>
+            <th>Valor Especulado</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of listaCompras">
+            <td> 
+                {{ item.nome }} 
+            </td>
+            <td>
+                {{ item.dataCriacao }}
+            </td>
+            <td>
+                R$ {{ item.valorTotalEspeculado }}
+            </td>
+            <td>
+                <button (click)="deleteListaCompra( item.id )" type="button">Excluir</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+  

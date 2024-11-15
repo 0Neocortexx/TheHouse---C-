@@ -16,11 +16,13 @@ namespace Model.Mappings.MapCompra
 
             builder.HasOne(l => l.ListaCompra)
                 .WithMany()
-                .HasForeignKey(l => l.ListaCompraId);
+                .HasForeignKey(l => l.ListaCompraId)
+                .OnDelete(DeleteBehavior.SetNull); // Define o comportamento de exclusão para vínculo fraco
 
             builder.HasOne(m => m.Mercado)
                 .WithMany()
-                .HasForeignKey(m => m.MercadoId);
+                .HasForeignKey(m => m.MercadoId)
+                .OnDelete(DeleteBehavior.SetNull); // Define o comportamento de exclusão para vínculo fraco
         }
     }
 }

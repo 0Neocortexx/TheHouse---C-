@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { TheHouseService } from '../../services/the-house.service';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cadastro',
@@ -18,7 +19,17 @@ export class CadastroComponent {
   email: string = '';
   senha: string = '';
 
+  
+
   cadastro() {
-    return this.service.cadastro(this.nome, this.email, this.senha);
+    if(this.service.validaEmail(this.email)) {
+        this.service.cadastro(this.nome, this.email, this.senha);
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Digite um email válido!"
+      });
+    }
   }
 }
