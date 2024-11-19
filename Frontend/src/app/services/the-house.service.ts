@@ -5,6 +5,10 @@ import { throwError } from 'rxjs';
 import { catchError } from 'rxjs';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { LoadingComponent } from '../components/loading/loading.component';
+import { LoaderService } from './loader.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import swal from 'sweetalert';
 
 const httpOptions = {
   headers : new HttpHeaders({
@@ -19,7 +23,8 @@ export class TheHouseService {
 
   http = inject(HttpClient);
   router = inject(Router);
-  
+  loader = inject(LoaderService);
+
   private apiUrl = 'http://localhost:5043/api';
 
   //nome: string, email: string, senha: string
@@ -32,43 +37,40 @@ export class TheHouseService {
 
   login(email: string, senha: string ) {
 
+    this.loader.show();
+
     const data = {email, senha};
 
     this.http.post(this.apiUrl+'/login', data, httpOptions) 
       
-    .pipe(
-        catchError(this.handleError)
-      )
-      .subscribe({
-        next: (response: any) => {
+    .pipe(catchError((error: HttpErrorResponse) => { 
+      this.loader.hide(); 
+      this.handleError(error); 
+      return throwError(() => error); 
+    }))
+    .subscribe({
+      next: (response: any) => {
 
-          localStorage.setItem("email", response.email);
-          localStorage.setItem("token", response.token);
-          localStorage.setItem("nome", response.nome);
-          localStorage.setItem("userIdentify", response.id);
+        this.loader.hide();
 
-          console.log(response);
-            
-          Swal.fire({
-              position: "center",
-              icon: "success",
-              title: "Login realizado com sucesso!",
-              showConfirmButton: false,
-              timer: 1500,
-          });
+        localStorage.setItem("email", response.email);
+        localStorage.setItem("token", response.token);
+        localStorage.setItem("nome", response.nome);
+        localStorage.setItem("userIdentify", response.id);
+          
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: `Bem Vindo ${response.nome} !`,
+            showConfirmButton: false,
+            timer: 1500,
+        });
 
-        },
-        error: (error) => {
-          console.error("Erro ao realizar login!", error);
-          Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Email ou senha inválidos"
-          });
-        },
-        complete: () => {
-          this.router.navigate(['/dashboard']);
-        }
+      },
+      complete: () => {
+        this.loader.hide();
+        this.router.navigate(['/dashboard']);
+      }
     })
   }
 
@@ -80,16 +82,23 @@ export class TheHouseService {
 
   cadastro(nome: string, email: string, senha: string) {
 
+    this.loader.show();
+
     email.toLowerCase;
     
     const data = { nome, email, senha };
 
     this.http.post(this.apiUrl+'/cadastro', data, httpOptions)
     .pipe(
-        catchError(this.handleError)
-      )
+      catchError((error: HttpErrorResponse) => { 
+        this.loader.hide(); 
+        this.handleError(error); 
+        return throwError(() => error); 
+      }))
       .subscribe({
         next: (response) => {
+          this.loader.hide();
+
           Swal.fire({
             position: "center",
             icon: "success",
@@ -99,11 +108,8 @@ export class TheHouseService {
         });
 
         },
-        error: (error) => {
-          console.error('Erro ao realizar cadastro:', error);
-        },
         complete: () => {
-          console.log('Requisição de cadastro completa.');
+          this.loader.hide();
           this.router.navigate(['login']);
         }
       });
@@ -113,8 +119,37 @@ export class TheHouseService {
     return this.http.put(this.apiUrl, data);
   }
 
-  private handleError(error: any) {
-    console.log(error);
-    return throwError(() => new Error('Erro ao realizar login. Verifique as credenciais e tente novamente.'));
+  handleError(error: HttpErrorResponse) {
+    this.loader.hide();
+    switch(error.status) {
+      case 0:
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Serviço indisponível!"
+        });
+        break;
+      case 401: 
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Email ou senha inválidos"
+      });
+      break;
+      case 500: 
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: error.error
+        })
+        break;
+      default:
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Ocorreu um erro inesperado!"
+        });
+        break;
+    }
   }
 }

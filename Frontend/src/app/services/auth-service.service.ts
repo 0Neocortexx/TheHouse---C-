@@ -30,7 +30,7 @@ export class AuthServiceService {
     Swal.fire({
       position: "center",
       icon: "success",
-      title: "Loggout realizado com sucesso!",
+      title: "Até Logo!",
       showConfirmButton: false,
       timer: 1500
     });

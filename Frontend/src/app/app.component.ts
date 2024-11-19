@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { IndexComponent } from './components/index/index.component';
+import { Component, inject } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { LoadingComponent } from "./components/loading/loading.component";
+import { LoaderService } from './services/loader.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, SweetAlert2Module],
+  imports: [RouterOutlet, SweetAlert2Module, LoadingComponent, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
   // template: `
@@ -14,5 +16,15 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
   // `
 })
 export class AppComponent {
-  title = 'Frontend';
+  title = 'The House';
+
+  isLoading: boolean = false;
+
+  loaderService = inject(LoaderService);
+
+  ngOnInit(): void { 
+    this.loaderService.loaderState.subscribe((state: boolean) => {
+       this.isLoading = state; 
+      }); 
+    }
 }
