@@ -2,11 +2,12 @@ import { Component, inject } from '@angular/core';
 import { ComprasService } from '../../services/compras.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { NavbarComponent } from "../navbar/navbar.component";
 
 @Component({
   selector: 'app-lista-compras',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NavbarComponent],
   templateUrl: './lista-compras.component.html',
   styleUrl: './lista-compras.component.css'
 })

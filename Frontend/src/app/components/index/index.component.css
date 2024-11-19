@@ -1,0 +1,91 @@
+* {
+    box-sizing: border-box;
+}
+
+section {
+    width: 100%;
+    display: flex;
+}
+
+.left-content {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.right-content {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-content {
+    font-size: 15px;
+    color: white;
+    text-align: center;
+}
+
+.login-content a {
+    color: white;
+    text-decoration: none;
+}
+
+.section1 {
+    align-items: center;
+    color: white;
+    height: 50vh;
+    font-size: 22px;
+}
+
+.box-item {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    padding-right: 80px;
+}
+
+.img-main {
+    width: 100%;
+}
+.img-main img {
+    width: 450px; 
+    height: 450px; 
+    border: 1px solid black; 
+    border-radius: 50%;
+    box-shadow: 10px 10px 20px 1px gray;
+}
+
+.section2 {
+    text-align: center;
+    color: white;
+    font-size: 22px;
+    height: 35svh;
+}
+
+.text-component {
+    color: white; 
+    width: 80%;
+}
+
+.section3 {
+    font-size: 18px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    height: 20vh;
+}
+
+.section3 div a{
+    color: white;
+    text-decoration: none;
+    align-items: center;
+}

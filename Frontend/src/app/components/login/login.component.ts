@@ -2,12 +2,12 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TheHouseService } from '../../services/the-house.service';
 import { RouterLink } from '@angular/router';
-import swal from 'sweetalert2';
+import { LoadingComponent } from "../loading/loading.component";
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, RouterLink],
+  imports: [FormsModule, RouterLink, LoadingComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

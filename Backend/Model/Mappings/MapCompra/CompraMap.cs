@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Model.Entities.CompraEntity;
-using System.Reflection.Emit;
 
 namespace Model.Mappings.MapCompra
 {
