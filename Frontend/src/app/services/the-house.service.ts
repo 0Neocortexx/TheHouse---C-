@@ -1,14 +1,9 @@
 import { inject, Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { HttpHeaders } from '@angular/common/http';
-import { throwError } from 'rxjs';
-import { catchError } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { throwError, catchError } from 'rxjs';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { LoadingComponent } from '../components/loading/loading.component';
 import { LoaderService } from './loader.service';
-import { HttpErrorResponse } from '@angular/common/http';
-import swal from 'sweetalert';
 
 const httpOptions = {
   headers : new HttpHeaders({
