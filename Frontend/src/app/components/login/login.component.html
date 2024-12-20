@@ -1,41 +1,50 @@
 <div class="all-login">
-    <section class="section-login">
-        <div class="login">
-            <div class="logincontent">
-                <h1>Realize seu login</h1>
-                
-                <div class="inputlabel">
-                    <label for="email">Email</label>
+
+    <div class="login-center">
+
+        <section class="section-login">
+
+            <div class="login">
+
+                <div class="logincontent">
                     
-                    <input 
-                        [(ngModel)]="email"
-                        class="inputtext form-control" 
-                        type="email" 
-                        id="email" 
-                        name="email"
-                    />
+                    <h1>Realize seu login</h1>
+                    
+                    <div class="inputlabel">
+                        <label for="email">Email</label>
+                        
+                        <input 
+                            [(ngModel)]="email"
+                            class="inputtext" 
+                            type="email" 
+                            id="email" 
+                            name="email"
+                            (keyup.enter)="login()"
+                        />
+                    </div>
+                    
+                    <div class="inputlabel">
+                        <label for="senha">Password</label>
+                        <input 
+                            [(ngModel)]="senha"
+                            class="inputtext" 
+                            type="password" 
+                            name="senha" 
+                            id="senha"
+                            (keyup.enter)="login()"
+                        />
+                    </div>
+        
+                    <a href="#esqueceusenha">Esqueceu a senha?</a>
+                    <input class="submit" type="submit" value="Entrar" (click)="login()">
+                    <a routerLink="/cadastro">Não possui cadastro?</a>
                 </div>
-                
-                <div class="inputlabel">
-                    <label for="senha">Password</label>
-                    <input 
-                        [(ngModel)]="senha"
-                        class="inputtext" 
-                        type="password" 
-                        name="senha" 
-                        id="senha"
-                    />
-                </div>
-    
-                <a href="#esqueceusenha">Esqueceu a senha?</a>
-                <input (click)="login()" class="submit" type="submit" value="Entrar">
-                <a routerLink="/cadastro">Não possui cadastro?</a>
             </div>
-        </div>
-    </section>
-    
-    <section class="section-login-img">
-        <div><h1 style="font-size: 30px;">The House</h1></div>
-        <div><img src="assets/images/casas.svg" alt="imagem de casas" class="img-login"></div>
-    </section>
+        </section>
+        
+        <section class="section-login-img">
+            <div><h1 style="font-size: 30px;">The House</h1></div>
+            <div><img src="assets/images/casas.svg" alt="imagem de casas" class="img-login"></div>
+        </section>
+    </div>
 </div>

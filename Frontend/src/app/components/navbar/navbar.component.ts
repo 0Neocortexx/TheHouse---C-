@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { AuthServiceService } from '../../services/auth-service.service';
+import { AuthService } from '../../services/auth.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -12,7 +12,7 @@ import { RouterLink } from '@angular/router';
 })
 export class NavbarComponent {
 
-  authservice = inject(AuthServiceService);
+  authservice = inject(AuthService);
 
   userName: string | null = null;
 

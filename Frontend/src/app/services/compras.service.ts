@@ -1,9 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AuthServiceService } from './auth-service.service';
-import { Observable, pipe } from 'rxjs';
-import { throwError } from 'rxjs';
-import { catchError } from 'rxjs';
+import { AuthService } from './auth.service';
+import { Observable, throwError, catchError } from 'rxjs';
 import Swal from 'sweetalert2';
 
 @Injectable({
@@ -13,7 +11,7 @@ export class ComprasService {
 
   private apiUrl = 'http://localhost:5043/api';
 
-  authService = inject(AuthServiceService);
+  authService = inject(AuthService);
 
   httpOptions = {
     headers : new HttpHeaders({
