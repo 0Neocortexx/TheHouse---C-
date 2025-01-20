@@ -1,4 +1,4 @@
-﻿using Model.DTOs.CompraDto.Mercado;
+﻿using Model.DTOs.Compras.Mercado;
 
 namespace Model.Services.Interfaces
 {

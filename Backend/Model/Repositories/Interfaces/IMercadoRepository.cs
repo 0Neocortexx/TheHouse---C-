@@ -1,5 +1,4 @@
-﻿using Model.Entities.CompraEntities;
-using Model.Entities.CompraEntity;
+﻿using Model.Entities.Compras;
 
 namespace Model.Repositories.Interfaces
 {

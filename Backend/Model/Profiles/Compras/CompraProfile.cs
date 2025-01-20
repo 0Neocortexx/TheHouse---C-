@@ -1,10 +1,9 @@
 ﻿using AutoMapper;
-using Model.DTOs.CompraDto.Mercado;
-using Model.DTOs.DtosCompra.Compras;
-using Model.DTOs.DtosCompra.ItemLista;
-using Model.DTOs.DtosCompra.ListaCompra;
-using Model.Entities.CompraEntities;
-using Model.Entities.CompraEntity;
+using Model.DTOs.Compras.Mercado;
+using Model.DTOs.Compras.Compra;
+using Model.DTOs.Compras.ItemLista;
+using Model.DTOs.Compras.ListaCompra;
+using Model.Entities.Compras;
 using System.Globalization;
 
 namespace Model.Profiles.Compras

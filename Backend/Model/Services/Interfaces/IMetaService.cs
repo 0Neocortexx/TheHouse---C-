@@ -1,4 +1,4 @@
-﻿using Model.Entities.GrupoMeta;
+﻿using Model.Entities.Metas;
 
 namespace Model.Services.Interfaces
 {

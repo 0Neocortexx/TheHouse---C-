@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using Dtos.VisitaDto;
+using DTOs.Visitas;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Model.Entities.Visita;
+using Model.Entities.Visitas;
 using Model.Services.Interfaces;
 
 namespace VisitasApi.Controllers

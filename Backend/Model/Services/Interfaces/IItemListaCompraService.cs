@@ -1,4 +1,4 @@
-﻿using Model.DTOs.DtosCompra.ItemLista;
+﻿using Model.DTOs.Compras.ItemLista;
 
 namespace Model.Services.Interfaces
 {

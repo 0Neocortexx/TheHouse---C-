@@ -1,4 +1,4 @@
-﻿using Model.Entities.Visita;
+﻿using Model.Entities.Visitas;
 
 namespace Model.Services.Interfaces
 {

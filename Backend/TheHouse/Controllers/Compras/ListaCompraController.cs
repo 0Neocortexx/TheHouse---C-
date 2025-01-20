@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Model.DTOs.DtosCompra.ListaCompra;
+using Model.DTOs.Compras.ListaCompra;
 using Model.Services.Interfaces;
 
 namespace TheHouse.Controllers.Compras
