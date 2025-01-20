@@ -7,14 +7,19 @@ namespace Security.AcessToken
 {
     public class TheHouseToken
     {
+
+        // Construtor vazio para a classe TheHouseToken
         public TheHouseToken() { }
 
+        // Método para gerar um token
         public string GerarToken(string email)
         {
             try
             {
+                // Instanciar a classe JwtSecurityTokenHandler
                 var tokenHandler = new JwtSecurityTokenHandler();
 
+                // Criar a chave
                 var key = Encoding.ASCII.GetBytes("TheHouseTokenSuperSecretKeyMaster2024");
 
                 var tokenDescriptor = new SecurityTokenDescriptor

@@ -1,10 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Model.Entities.CompraEntities;
-using Model.Entities.CompraEntity;
+using Model.Entities.Compras;
 using Model.Entities.Financas;
-using Model.Entities.GrupoMeta;
-using Model.Entities.GrupoUsuario;
-using Model.Entities.Visita;
+using Model.Entities.Metas;
+using Model.Entities.Usuarios;
+using Model.Entities.Visitas;
 using System.Reflection;
 
 namespace Model.Context

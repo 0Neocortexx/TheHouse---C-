@@ -5,20 +5,19 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Model.Context;
 using Model.Profiles.Compras;
-using Model.Profiles.MetaProfile;
-using Model.Profiles.UsuarioProfile;
+using Model.Profiles.Metas;
+using Model.Profiles.Usuarios;
 using Model.Profiles.VisitaProfile;
 using Model.Repositories.Compras;
 using Model.Repositories.Entretenimento;
 using Model.Repositories.Interfaces;
-using Model.Repositories.MetaRepository;
+using Model.Repositories.Metas;
 using Model.Repositories.UsuarioRepository;
 using Model.Services.Compras;
-using Model.Services.ComprasService;
 using Model.Services.Interfaces;
-using Model.Services.MetaService;
-using Model.Services.UsuarioService;
-using Model.Services.VisitaService;
+using Model.Services.Metas;
+using Model.Services.Usuarios;
+using Model.Services.Visitas;
 using System.Text;
 
 namespace InfraTheHouse.Extensions

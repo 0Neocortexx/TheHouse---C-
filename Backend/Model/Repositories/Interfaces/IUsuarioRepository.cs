@@ -1,4 +1,4 @@
-﻿using Model.Entities.GrupoUsuario;
+﻿using Model.Entities.Usuarios;
 
 namespace Model.Repositories.Interfaces
 {

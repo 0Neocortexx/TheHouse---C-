@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Model.DTOs.MetaDto;
-using Model.Entities.GrupoMeta;
+using Model.DTOs.Metas;
+using Model.Entities.Metas;
 using Model.Services.Interfaces;
 
 namespace TheHouse.Controllers

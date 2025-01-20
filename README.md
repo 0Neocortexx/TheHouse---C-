@@ -11,12 +11,16 @@ Outro recurso essencial é o controle de lista de compras, permitindo que o usu�
 
 O The House é uma solução completa para quem busca praticidade e organização no dia a dia doméstico.
 
-### Tecnologias utilizadas
-- Frontend: Inicialmente seria utilizado a tecnologia Vue.js porém foi alterado para Angular
+### Tecnologias e Metodologias utilizadas
+- Frontend: 
+    - Linguagem: Typescript
+    - Frameworks: Angular
 - Backend:
+    - Arquitetura: Arquitetura baseada em camadas utilizando os principios da Clean Architecture para escalabilidade e manutenção do sistema.
     - Linguagem: C#
     - ORM: EntityFramework
     - Segurança de acesso: JsonWebToken
+    - Ferramenta para testes de rota: Swagger e Postman
     - Pacotes:
         - Microsoft.EntityFrameworkCore | (Pacote que permite a utilização de ORM)
         - Npgsql.EntityFrameworkCore.PostgreSQL | (Pacote que permite a integração com o banco de dados PostgreSQL)

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Model.DTOs.UsuarioDto;
+using Model.DTOs.Usuarios;
 using Model.Services.Interfaces;
 using Util.ManipulationStrings;
 

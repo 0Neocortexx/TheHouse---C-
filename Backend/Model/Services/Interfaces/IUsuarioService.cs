@@ -1,5 +1,4 @@
-﻿using Model.DTOs.UsuarioDto;
-using Model.Entities.GrupoUsuario;
+﻿using Model.DTOs.Usuarios;
 
 namespace Model.Services.Interfaces
 {
