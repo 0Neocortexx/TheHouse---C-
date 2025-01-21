@@ -1,49 +1,69 @@
- <section class="section1">
-
-    <div class="left-content"> 
-        <div class="box-item">
-            
-            <h1>Bem vindo ao The house!</h1>
-        
-            <div class="login-content">
-                <h2>Realize seu acesso agora mesmo</h2>
-                <a routerLink="/cadastro">Cadastro</a><br><br>
-                <a routerLink="/login">Login</a>
-            </div>
-    
-        </div> 
-    </div>   
-
-    <div class="right-content">
-        <div class="img-main">
-            <img src="assets/images/trabalho.svg" alt="imagem casa">
+<section>
+    <nav>
+        <div>
+            <h1>The House</h1>
         </div>
-    </div>
 
+        <div>
+            <ul>
+                <li><a style="text-decoration: none; color: white; border-bottom: 1px solid white;" routerLink="/login">Login</a></li>
+                |
+                <li><a style="text-decoration: none; color: white; border-bottom: 1px solid white;" routerLink="/cadastro">Cadastro</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="content">
+
+         <div class="contentTitle">
+            <h1 style="text-align: center;">Bem vindo ao <br>The house!</h1>
+         </div>
+
+         <div class="contentBox">
+            <div>
+                <p>O The House é um sistema desenvolvido para facilitar a gestão financeira e organizacional de uma residência. Sua principal função é permitir o controle eficiente de despesas e atividades domésticas, oferecendo uma solução centralizada para diversos aspectos do dia a dia.</p>
+            </div>
+            
+            <div>
+                <p>O The House é uma solução completa para quem busca praticidade e organização no dia a dia doméstico.</p>
+            </div>
+         </div>
+
+    </section>
+
+    <section class="utilities">
+
+        <div class="utilitiesTitle">
+            <h1>Utilidades</h1>
+        </div>
+
+        <div class="utilitiesCard">
+            <div>
+                <p>Controle de gastos mensais</p>
+            </div>
+            <div>
+                <p>Armazenamento de informações</p>
+            </div>
+            <div>
+                <p>Controle de compras</p>
+            </div>
+            <div>
+                <p>Sugestão de entretenimento</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="contactTitle">
+            <h1>Fale conosco</h1>
+        </div>
+
+        <div class="contactCliqueAqui">
+            <a id="idEmail" href="#">Clique aqui!</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>Created By <i>Jonathan Amorim</i></p>
+    </footer>
 </section>
-    
-<section class="section2">
-
-    <div class="left-content">
-        <div class="text-component">
-            <p>O The House é um sistema desenvolvido para facilitar a gestão financeira e organizacional de uma residência. 
-                Sua principal função é permitir o controle eficiente de despesas e atividades domésticas, oferecendo uma solução 
-                centralizada para diversos aspectos do dia a dia.</p>
-        </div> 
-    </div>
-
-    <div class="right-content">
-        <div class="text-component">
-            <p>O The House é uma solução completa para quem busca praticidade e organização no dia a dia doméstico.</p>
-        </div>  
-    </div>
-</section>
-
-<section class="section3">
-    <div>
-        <h3>Fale conosco!</h3>
-        <a routerLink="/faleconosco">Clique aqui</a>
-    </div>   
-</section>
-
-<app-footer></app-footer>

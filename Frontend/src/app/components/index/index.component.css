@@ -2,90 +2,128 @@
     box-sizing: border-box;
 }
 
-section {
-    width: 100%;
+nav {
     display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    border-bottom: 1px solid white;
+    padding: 40px;
+    margin: 0;
+    align-items: center;
 }
 
-.left-content {
-    width: 50%;
-    height: 100%;
+nav h1 {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    gap: 10px;
+}
+
+.content {
+    padding: 60px 120px 60px 120px;
+    display: flex;
     flex-direction: column;
+    gap: 30px;
+    border-bottom: 1px solid white;
 }
 
-.right-content {
-    width: 50%;
-    height: 100%;
+.contentTitle {
     display: flex;
     justify-content: center;
+}
+
+.contentBox {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    justify-content: space-between;
+}
+
+.contentBox div {
+    width: 40%;
+    display: flex;
     align-items: center;
 }
 
-.login-content {
-    font-size: 15px;
-    color: white;
+.contentBox div p {
     text-align: center;
+    font-size: 24px;
 }
 
-.login-content a {
+.utilities {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 120px 60px 120px;
+    gap: 40px;
+    border-bottom: 1px solid white;
+}
+
+.utilitiesTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.utilitiesCard {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.utilitiesCard p {
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.utilitiesCard div{
+    border-bottom: 1px solid white;
+    margin: 0;
+    padding: 0;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 120px 60px 120px;
+    gap: 20px;
+    border-bottom: 1px solid white;
+}
+
+.contactTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contactCliqueAqui {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#idEmail {
     color: white;
     text-decoration: none;
 }
 
-.section1 {
-    align-items: center;
-    color: white;
-    height: 50vh;
-    font-size: 22px;
-}
-
-.box-item {
-    height: 100%;
-    width: 100%;
+footer {
     display: flex;
-    flex-direction: column;
-    align-items: end;
-    justify-content: center;
-    padding-right: 80px;
-}
-
-.img-main {
-    width: 100%;
-}
-.img-main img {
-    width: 450px; 
-    height: 450px; 
-    border: 1px solid black; 
-    border-radius: 50%;
-    box-shadow: 10px 10px 20px 1px gray;
-}
-
-.section2 {
-    text-align: center;
-    color: white;
-    font-size: 22px;
-    height: 35svh;
-}
-
-.text-component {
-    color: white; 
-    width: 80%;
-}
-
-.section3 {
-    font-size: 18px;
-    text-align: center;
     align-items: center;
     justify-content: center;
-    color: white;
-    height: 20vh;
+    margin: 0;
+    padding: 10px;
 }
 
-.section3 div a{
-    color: white;
-    text-decoration: none;
-    align-items: center;
+footer p {
+    margin: 0;
+    padding: 0;
 }
