@@ -6,7 +6,8 @@ body {
     justify-content: center;
     align-items: center;
     width: 100vw;
-    font-family: "Julius Sans One", sans-serif !important;
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
     background-color: #171717 !important;
     color: white !important;
 }
